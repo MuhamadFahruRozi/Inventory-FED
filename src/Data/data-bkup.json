@@ -1,0 +1,109 @@
+{
+    "record_penjualan": [
+        {
+            "id": 1,
+            "no_transaksi_jual": "NOTRAJUL-1",
+            "id_barang": "BRG-1",
+            "jumlah_jual_barang": 1,
+            "total_jual": 1200000
+        },
+        {
+            "id": 2,
+            "no_transaksi_jual": "NOTRAJUL-2",
+            "id_barang": "BRG-2",
+            "jumlah_jual_barang": 5,
+            "total_jual": 750000
+        },
+        {
+            "id": 3,
+            "no_transaksi_jual": "NOTRAJUL-2",
+            "id_barang": "BRG-3",
+            "jumlah_jual_barang": 5,
+            "total_jual": 1250000
+        }
+    ],
+    "record_pembelian": [
+        {
+            "id": 1,
+            "no_transaksi_beli": "NOTRABEL-1",
+            "id_barang": "BRG-1",
+            "jumlah_beli_barang": 10,
+            "total_beli": 10000000
+        },
+        {
+            "id": 2,
+            "no_transaksi_beli": "NOTRABEL-1",
+            "id_barang": "BRG-2",
+            "jumlah_beli_barang": 25,
+            "total_beli": 2500000
+        },
+        {
+            "id": 3,
+            "no_transaksi_beli": "NOTRABEL-1",
+            "id_barang": "BRG-3",
+            "jumlah_beli_barang": 15,
+            "total_beli": 3000000
+        }
+    ],
+    "stok_barang": [
+        {
+            "id": 1,
+            "id_barang": "BRG-1",
+            "nama_barang": "Monitor LCD",
+            "jumlah_barang_tersedia": 9,
+            "total_harga_stok": 9000000,
+            "total_potensi_jual": 10800000
+        },
+        {
+            "id": 2,
+            "id_barang": "BRG-2",
+            "nama_barang": "Keyboard",
+            "jumlah_barang_tersedia": 20,
+            "total_harga_stok": 2000000,
+            "total_potensi_jual": 300000
+        },
+        {
+            "id": 3,
+            "id_barang": "BRG-3",
+            "nama_barang": "Headset",
+            "jumlah_barang_tersedia": 10,
+            "total_harga_stok": 2000000,
+            "total_potensi_jual": 2500000
+        }
+    ],
+    "data_barang": [
+        {
+            "id": 1,
+            "id_barang": "BRG-1",
+            "nama_barang": "Monitor LCD",
+            "harga_beli": 1000000,
+            "harga_jual": 1200000,
+            "total_brg_dibeli_seluruh": 10,
+            "total_harga_dibeli_seluruh": 10000000,
+            "total_brg_dijual_seluruh": 1,
+            "total_harga_dijual_seluruh": 1200000
+        },
+        {
+            "id": 2,
+            "id_barang": "BRG-2",
+            "nama_barang": "Keyboard",
+            "harga_beli": 100000,
+            "harga_jual": 150000,
+            "total_brg_dibeli_seluruh": 25,
+            "total_harga_dibeli_seluruh": 2500000,
+            "total_brg_dijual_seluruh": 5,
+            "total_harga_dijual_seluruh": 750000
+        },
+        {
+            "id": 3,
+            "id_barang": "BRG-3",
+            "nama_barang": "Headset",
+            "harga_beli": 200000,
+            "harga_jual": 250000,
+            "total_brg_dibeli_seluruh": 15,
+            "total_harga_dibeli_seluruh": 3000000,
+            "total_brg_dijual_seluruh": 5,
+            "total_harga_dijual_seluruh":1250000
+        }
+    ]
+}

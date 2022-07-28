@@ -1,0 +1,628 @@
+.App {
+  text-align: center;
+}
+
+.row-container{
+  display: flex;
+  height: 100vh;
+}
+
+.content{
+  width: 78vw;
+  transition: width 0.2s linear;
+  /* background-color: aqua; */
+}
+
+.content.wide{
+  width: 96.5vw;
+}
+
+.content-fill{
+  width: 93%;
+  height: 100%;
+  margin: 0 auto 0;
+  padding-top: 20px;
+  transition: width 0.2s linear;
+  /* background-color: aquamarine; */
+}
+
+.sidebar{
+  width: 22vw;
+  transition: width 0.2s linear;
+  
+}
+
+.sidebar.small{
+  width: 3.5vw;
+  transition: width 0.2s linear;  
+}
+
+.sidebar-hide, .sidebar-show{
+  cursor: pointer;
+}
+
+.picture-div{
+  display: flex;
+  align-items: center;
+  background-color: blueviolet;
+  height: 75%;
+}
+
+.name-div{
+  display: flex;
+  height: 25%;
+  background-color: blueviolet;
+}
+
+.input-tag{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  border-radius: 0 10px 10px 0;
+}
+
+.input-tag.small{
+  font-size: 10px;
+}
+
+.hide-button{
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: xx-large;
+  width: 46px;
+  height: 100%;
+  transition: width 2s linear;
+  background-color: red;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 0% 100%, 0% 70%, 0% 0%);
+  z-index: 20;
+}
+
+.hide-button.name{
+  display: flex;
+  align-items: center;
+  /* width: 15%; */
+  width: 46px;
+  height: 100%;
+  transition: width 2s linear;
+  background-color: red;
+  /* clip-path: polygon(100% 0%, 50% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%); */
+  clip-path: polygon(30% 0%, 40% 0%, 10% 30%, 10% 70%, 40% 100%, 0% 100%, 0% 70%, 0% 0%);
+}
+
+.hide-button.side{
+  display: flex;
+  align-items: center;
+  /* width: 15%; */
+  width: 46px;
+  transition: width 2s linear;
+  background-color: red;
+  /* clip-path: polygon(100% 0%, 50% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%); */
+  clip-path: polygon(30% 0%, 40% 0%, 60% 30%, 60% 70%, 40% 100%, 0% 100%, 0% 70%, 0% 0%);
+}
+
+.hide-button.social{
+  display: flex;
+  align-items: center;
+  /* width: 15%; */
+  width: 46px;
+  transition: width 2s linear;
+  background-color: red;
+  /* clip-path: polygon(100% 0%, 50% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%); */
+  clip-path: polygon(30% 0%, 40% 0%, 60% 30%, 60% 70%, 40% 100%, 0% 100%, 0% 70%, 0% 0%);
+}
+
+
+.profile{
+  height: 30vh;
+  position: relative;
+}
+
+.photo{
+  width: 90%;
+  height: 60%;
+  margin: 0 auto 5px;
+  display: flex;
+}
+
+.photo img{
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
+}
+
+.username{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: large;
+  background-color: yellow;
+  width: 85%;
+  -webkit-animation:sidetext 1s;
+  -moz-animation:sidetext 1s;
+  animation-name: sidetext 1s;
+}
+
+@keyframes sidetext{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@-moz-keyframes sidetext{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+@-webkit-keyframes sidetext{
+  0%{opacity: 0;}
+  100%{opacity: 1;}
+}
+
+.side-nav{
+  position: relative;
+  display: flex;
+  background-color:rgba(0, 255, 255, 0.603);
+  height: 48vh;
+  z-index: 10;
+}
+
+.side-div{
+  width: 85%;
+  border-top: 1px solid;
+  -webkit-animation:sidetext 1s;
+  -moz-animation:sidetext 1s;
+  animation-name: sidetext 1s;
+}
+
+.row{
+  width: 104%;
+}
+
+.fill{
+  background-color: aqua;
+}
+
+.link{
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: left;
+  text-indent: 60px;
+}
+
+.link.on{
+  background-color: white;
+}
+
+.link:hover{
+  background-color:white;
+}
+
+.made-by{
+  position: relative;
+  display: flex;
+  font-size: 12px;
+  height: 17vh;
+  background-color:rgba(0, 255, 255, 0.603);
+}
+
+.setting-menu{
+  position: relative;
+  left: 95%;
+  top: -10%;
+  border-radius: 5%;
+  background-color: rebeccapurple;
+  width: 50%;
+  z-index: 30;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center; */
+}
+
+.social-div{
+  border-top: 1px solid;
+  width: 85%;
+  -webkit-animation:sidetext 1s;
+  -moz-animation:sidetext 1s;
+  animation-name: sidetext 1s;
+}
+
+.social-tab{
+  display: flex;
+  margin: 5px 5% 0;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.social-label{
+  width: 0%;
+  display: flex;
+}
+
+.social-label.off{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-link{
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.tool{
+  width: 180px;
+  position: absolute;
+  left: 105%;
+  top: -50%;
+  border-radius: 2px;
+  border: 1px solid;
+  z-index: 4;
+  background-color: white;
+}
+
+.tool.on{
+  width: 80px;
+  position: absolute;
+  left: 105%;
+  top: -50%;
+  border-radius: 2px;
+  border: 1px solid;
+  z-index: 4;
+  background-color: white;
+}
+
+.tool:after{
+  position: absolute;
+  right: 98%;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  top: 35%;
+  content: '';
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background-color: white;
+  z-index: 10;
+}
+
+.tool.on:after{
+  position: absolute;
+  right: 95%;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  top: 35%;
+  content: '';
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+  background-color: white;
+  z-index: 10;
+}
+
+.input{
+  width: 100%;
+}
+
+.an{
+  background-color: aqua;
+}
+
+.un{
+  background-color: darkcyan;
+}
+
+.sz{
+  background-color: red;
+}
+
+.table-record{
+  margin-top: 40px;
+}
+
+.row-label{
+  text-align: left;
+}
+
+.label-record{
+  border-top: 3px double;
+  border-bottom: 3px double;
+  text-align: left;
+  background-color: aqua;
+}
+
+.data-record{
+  border-bottom: 2px solid;
+  padding: 4px 0 4px;
+  text-align: left;
+  align-items: center;
+}
+
+.data-record:nth-child(2n+1){
+  background-color: rgb(233, 233, 233);
+}
+
+.data-record.stok{
+  font-size: 12px;
+}
+
+.data-record.barang{
+  font-size: 11px;
+}
+
+.data-summary{
+  border-bottom: 2px dashed;
+  padding: 10px 0 10px;
+  text-align: left;
+  align-items: center;
+}
+
+.row-record{
+  padding: 4px 0 4px;
+  text-align: left;
+  align-items: center; 
+}
+
+.number{
+  display: flex;
+}
+
+.note-barang{
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.note-ul{
+  padding-left: 0;
+  list-style-type: none;
+}
+
+ul li{
+  display: flex;
+}
+
+.left-number{
+  width: 20%;
+  display: flex;
+  justify-content: center;
+}
+
+.right-number{
+  width: 80%;
+  display: flex;
+  justify-content: right;
+}
+
+.notra{
+  text-align: left;
+}
+
+.jml{
+  text-align: center;
+}
+
+.total-col{
+  margin-left: -15px;
+}
+
+.total-all{
+  width: 100%;
+}
+
+.totalAll-label{
+  margin-left: -30px;
+  margin-right: 30px;
+  display: flex;
+  justify-content:baseline;
+}
+
+.input-total{
+  padding: 5px 0 30px;
+  border-bottom: 1px dashed;
+}
+
+.record-transaksi{
+  padding-top: 30px;
+}
+
+.blue-button{
+  display: flex;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  justify-content: center;
+  align-items: center;
+}
+
+.red-button{
+  display: flex;
+  border-right: 2px solid;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-button{
+  display: flex;
+  border-right: 2px solid;
+  justify-content: center;
+  align-items: center;
+}
+
+.auto-complete{
+  position: absolute;
+  max-height: 300px;
+  background-color: white;
+  width: 160px;
+  border: 1px solid;
+}
+
+.auto-fill:hover{
+  background-color: rgb(72, 72, 255);
+  cursor: pointer;
+}
+
+.save{
+  color: white;
+}
+
+.save-button{
+  width: 120px;
+}
+
+.login-page{
+  background-color: red;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card{
+  width: 400px;
+  height: 300px;
+  background-color: aqua;
+}
+
+.login-title{
+  margin-top: 20px;
+}
+
+.login-button{
+  width: 100%;
+  margin: 20px auto 20px;
+}
+
+.input-card{
+  background-color: bisque;
+  width: 80%;
+  margin: 10px auto 20px;
+}
+
+.input-row{
+  position: relative;
+}
+
+.login-btn.on{
+  background-color: blue;
+  width: 30%;
+  border-radius: 10%;
+}
+
+.login-btn.off{
+  background-color: blue;
+  opacity: 0.7;
+  width: 30%;
+  border-radius: 10%;
+}
+
+.login-input{
+  width: 90%;
+  margin: 10px 5% 10px;
+}
+
+.see{
+  position: absolute;
+  height: 50%;
+  width: 20px;
+  top: 25%;
+  right: 10%;
+}
+
+.input-card.prof{
+  width: 50%;
+  background-color: rgb(226, 224, 224);
+}
+
+.label-prof{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+}
+
+.list-user{
+  margin-top: 20px;
+}
+
+.adm-userlist{
+  display: flex;
+  margin: 20px auto 0;
+  padding-bottom: 100px;
+  border-radius: 10px;
+  border: 1px solid;
+}
+
+.adm-usercard{
+  display: flex;
+  width: 48%;
+  margin: 10px auto 10px;
+  border-radius:2%;
+  border: 1px solid;
+}
+
+.photo-list{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+
+.photo-list img{
+  width: 90%;
+  border-radius: 20px;
+}
+
+.adm-listbox{
+  width: 60%;
+}
+
+.user-input-list{
+  width: 90%;
+  margin: 8px auto 8px;
+}
+
+.adm-editbutton{
+  width: 20%;
+}
+
+.btn-userlist{
+  width: 80%;
+  margin: 5px auto 0;
+}
+
+.setting-button{
+  position: relative;
+  left: -20%;
+  font-size: 85%;
+  border-radius: 50%;
+}
+
+.setting-button:hover{
+  background-color: rgb(235, 235, 235);
+}
+
+@media (min-width: 600px) {
+  .content{
+    /* background-color:brown; */
+  }
+
+  .photo{
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 10px;
+  }
+
+  .profile{
+    height: 35vh;
+  }
+
+}
