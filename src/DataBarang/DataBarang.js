@@ -6,7 +6,7 @@ const DataBarang = () => {
   const [barang, setBarang] = useState([])
 
   const fetchBarang = async () => {
-    const { data } = await axios.get("https://portofolio-api-mfr.herokuapp.com/api/barang/");
+    const { data } = await axios.get("https://inventory-bd-mfr.herokuapp.com/api/barang/");
     const allData = data;
     setBarang(allData)
     console.log(allData)

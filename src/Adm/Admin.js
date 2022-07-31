@@ -7,7 +7,7 @@ const Admin = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const {data} = await axios.get('https://portofolio-api-mfr.herokuapp.com/api/user/profile')
+      const {data} = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/user/profile')
       setUsers(data)
       // console.log(data)
     }

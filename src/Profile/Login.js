@@ -9,12 +9,12 @@ const Login = ({ user, setUser, auth}) => {
   const [buttonLogin, setbuttonLogin] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [dataLoginAttemp, setDataLoginAttemp] = useState([])
+  const [dataLoginAttemp, setDataLoginAttemp] = useState([username])
   const [passing, setPassing] = useState([])
 
   useEffect (() => {
     const fetchLogin = async () => {
-      const { data } = await axios.get('https://portofolio-api-mfr.herokuapp.com/api/user/tryLogin');
+      const { data } = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/user/tryLogin');
         setDataLoginAttemp(data)
     }
     fetchLogin()
@@ -53,7 +53,7 @@ const Login = ({ user, setUser, auth}) => {
         loginFormData.append('username', username);
         loginFormData.append('password', password);
   
-        const loginUrl ='https://portofolio-api-mfr.herokuapp.com/api/user/login/';
+        const loginUrl ='https://inventory-bd-mfr.herokuapp.com/api/user/login/';
   
         const res = await axios.post(loginUrl, loginFormData)
         // console.log(res.data)

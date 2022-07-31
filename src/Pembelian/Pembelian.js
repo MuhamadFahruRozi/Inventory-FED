@@ -7,7 +7,7 @@ const Pembelian = () => {
   
   useEffect(() => {
     const dataBeli = async () => {
-      const { data } = await axios.get("https://portofolio-api-mfr.herokuapp.com/api/restock/");
+      const { data } = await axios.get("https://inventory-bd-mfr.herokuapp.com/api/restock/");
       const allData = data;
       setTransaksi(allData)
     }

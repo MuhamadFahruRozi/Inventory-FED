@@ -7,7 +7,7 @@ const Penjualan = () => {
   
   useEffect(() => {
     const dataJual = async () => {
-      const { data } = await axios.get("https://portofolio-api-mfr.herokuapp.com/api/sales/");
+      const { data } = await axios.get("https://inventory-bd-mfr.herokuapp.com/api/sales/");
       const allData = data;
       setTransaksi(allData)
     }
