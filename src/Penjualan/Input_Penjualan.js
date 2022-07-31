@@ -22,8 +22,8 @@ const Input_Penjualan = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get('http://localhost:8000/api/barang/');
-      const res = await axios.get('http://localhost:8000/api/total/')
+      const { data } = await axios.get('https://portofolio-api-mfr.herokuapp.com/api/barang/');
+      const res = await axios.get('https://portofolio-api-mfr.herokuapp.com/api/total/')
       const allData = data;
       setDataBarang(allData)
 
@@ -266,7 +266,7 @@ const Input_Penjualan = () => {
         salesFormData.append('jumjul', jumlah[index])
         salesFormData.append('tojul', total[index]);
 
-        const salesUrl ='http://localhost:8000/api/sales/';
+        const salesUrl ='https://portofolio-api-mfr.herokuapp.com/api/sales/';
 
         axios.post(salesUrl, salesFormData).then(res => {
             alert(`Sales ${namaBarang[index]} recorded!`)
@@ -281,7 +281,7 @@ const Input_Penjualan = () => {
         stokFormData.append('tobel', totalHargaNet)
         stokFormData.append('tojul', total[index])
 
-        const stokUrl =`http://localhost:8000/api/inventory/sales/${idBarang[index]}`;
+        const stokUrl =`https://portofolio-api-mfr.herokuapp.com/api/inventory/sales/${idBarang[index]}`;
 
         axios.put(stokUrl, stokFormData).then(res => {
             alert(`Stok change for ${namaBarang[index]} recorded!`)
@@ -294,7 +294,7 @@ const Input_Penjualan = () => {
         barangFormData.append('jumjul', jumlah[index])
         barangFormData.append('tojul', total[index])
 
-        const barangUrl =`http://localhost:8000/api/barang/sales/${idBarang[index]}`;
+        const barangUrl =`https://portofolio-api-mfr.herokuapp.com/api/barang/sales/${idBarang[index]}`;
 
         axios.put(barangUrl, barangFormData).then(res => {
             alert(`Item sales overall for ${namaBarang[index]} recorded!`)
@@ -316,7 +316,7 @@ const Input_Penjualan = () => {
     totalFormData.append('notrajul', noTransaksi);
     totalFormData.append('tojulall', totalAll);
 
-    const urlTotal ='http://localhost:8000/api/total/sales';
+    const urlTotal ='https://portofolio-api-mfr.herokuapp.com/api/total/sales';
 
     axios.post(urlTotal, totalFormData).then(res => {
         alert("Total Sales Recorded!")

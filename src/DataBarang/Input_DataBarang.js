@@ -136,7 +136,7 @@ const Input_Pembelian = () => {
         barangFormData.append('harbel', hargaBeli[index])
         barangFormData.append('harjul', hargaJual[index])
 
-        const barangUrl =`http://localhost:8000/api/barang/`;
+        const barangUrl =`https://portofolio-api-mfr.herokuapp.com/api/barang/`;
 
         axios.post(barangUrl, barangFormData).then(res => {
             alert(`Items data recorded!`)
@@ -148,7 +148,7 @@ const Input_Pembelian = () => {
         let stokFormData = new FormData();
         stokFormData.append('idbar', idBarang[index])
 
-        const stokUrl =`http://localhost:8000/api/inventory/`;
+        const stokUrl =`https://portofolio-api-mfr.herokuapp.com/api/inventory/`;
 
         axios.post(stokUrl, stokFormData).then(res => {
             alert(`Stok data for ${namaBarang[index]} recorded!`)

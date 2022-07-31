@@ -36,7 +36,7 @@ function App() {
     let refreshTokenFormData = new FormData();
     refreshTokenFormData.append('token', user.refreshToken);
 
-    const refreshUrl = 'http://localhost:8000/api/user/tokenRefresh';
+    const refreshUrl = 'https://portofolio-api-mfr.herokuapp.com/api/user/tokenRefresh';
 
     const res = axios.post(refreshUrl, refreshTokenFormData)
     // console.log(res.data)

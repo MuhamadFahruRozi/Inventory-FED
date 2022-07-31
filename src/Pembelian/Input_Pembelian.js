@@ -22,8 +22,8 @@ const Input_Pembelian = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get('http://localhost:8000/api/barang/');
-      const res = await axios.get('http://localhost:8000/api/total/')
+      const { data } = await axios.get('https://portofolio-api-mfr.herokuapp.com/api/barang/');
+      const res = await axios.get('https://portofolio-api-mfr.herokuapp.com/api/total/')
       const allData = data;
       setDataBarang(allData)
 
@@ -231,7 +231,7 @@ const Input_Pembelian = () => {
         purchaseFormData.append('jumbel', jumlah[index])
         purchaseFormData.append('tobel', total[index]);
 
-        const purchaseUrl ='http://localhost:8000/api/restock/';
+        const purchaseUrl ='https://portofolio-api-mfr.herokuapp.com/api/restock/';
 
         axios.post(purchaseUrl, purchaseFormData).then(res => {
             alert(`Purchase ${namaBarang[index]} recorded!`)
@@ -246,7 +246,7 @@ const Input_Pembelian = () => {
         stokFormData.append('tobel', total[index])
         stokFormData.append('tojul', totalHargaJual)
 
-        const stokUrl =`http://localhost:8000/api/inventory/restock/${idBarang[index]}`;
+        const stokUrl =`https://portofolio-api-mfr.herokuapp.com/api/inventory/restock/${idBarang[index]}`;
 
         axios.put(stokUrl, stokFormData).then(res => {
             alert(`Stok change for ${namaBarang[index]} recorded!`)
@@ -259,7 +259,7 @@ const Input_Pembelian = () => {
         barangFormData.append('jumbel', jumlah[index])
         barangFormData.append('tobel', total[index])
 
-        const barangUrl =`http://localhost:8000/api/barang/restock/${idBarang[index]}`;
+        const barangUrl =`https://portofolio-api-mfr.herokuapp.com/api/barang/restock/${idBarang[index]}`;
 
         axios.put(barangUrl, barangFormData).then(res => {
             alert(`Item purchase overall for ${namaBarang[index]} recorded!`)
@@ -276,7 +276,7 @@ const Input_Pembelian = () => {
     totalFormData.append('notrabel', noTransaksi);
     totalFormData.append('tobelall', totalAll);
 
-    const urlTotal ='http://localhost:8000/api/total/restock';
+    const urlTotal ='https://portofolio-api-mfr.herokuapp.com/api/total/restock';
 
     axios.post(urlTotal, totalFormData).then(res => {
         alert("Total Purchase Recorded!")

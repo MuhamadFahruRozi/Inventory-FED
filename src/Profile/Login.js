@@ -14,7 +14,7 @@ const Login = ({ user, setUser, auth}) => {
 
   useEffect (() => {
     const fetchLogin = async () => {
-      const { data } = await axios.get('http://localhost:8000/api/user/tryLogin');
+      const { data } = await axios.get('https://portofolio-api-mfr.herokuapp.com/api/user/tryLogin');
         setDataLoginAttemp(data)
     }
     fetchLogin()
@@ -53,7 +53,7 @@ const Login = ({ user, setUser, auth}) => {
         loginFormData.append('username', username);
         loginFormData.append('password', password);
   
-        const loginUrl ='http://localhost:8000/api/user/login/';
+        const loginUrl ='https://portofolio-api-mfr.herokuapp.com/api/user/login/';
   
         const res = await axios.post(loginUrl, loginFormData)
         // console.log(res.data)
