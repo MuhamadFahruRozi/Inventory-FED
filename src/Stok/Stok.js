@@ -7,7 +7,7 @@ const Stok = () => {
 
   useEffect(() => {
     const fetchStok = async () => {
-      const {data} = await axios.get('http://localhost:8000/api/inventory/');
+      const {data} = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/inventory/');
       const dataStok = data;
       setStok(dataStok)
       // console.log(data.id_barang)
