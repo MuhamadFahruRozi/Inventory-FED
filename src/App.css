@@ -478,22 +478,27 @@ ul li{
 }
 
 .login-page{
-  background-color: red;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(241, 241, 241);
 }
 
 .login-card{
+  border-radius: 10px;
   width: 400px;
-  height: 300px;
-  background-color: aqua;
+  height: 350px;
+  background-color:white;
 }
 
 .login-title{
-  margin-top: 20px;
+  /* margin-top: 20px; */
+  padding: 5% 0 5%;
+  background-color:rgb(109, 109, 253);
+  color:white;
+  border-radius: 10px 10px 0 0;
 }
 
 .login-button{
@@ -505,6 +510,8 @@ ul li{
   background-color: bisque;
   width: 80%;
   margin: 10px auto 20px;
+  padding: 4%;
+  border-radius: 10px;
 }
 
 .input-row{
@@ -527,6 +534,14 @@ ul li{
 .login-input{
   width: 90%;
   margin: 10px 5% 10px;
+}
+
+.login-message{
+  margin: 0 15% 0;
+  border: 1px solid red;
+  border-radius: 3px;
+  color: red;
+  background-color: rgb(255, 173, 173);
 }
 
 .see{

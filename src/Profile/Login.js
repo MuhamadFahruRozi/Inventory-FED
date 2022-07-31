@@ -9,8 +9,9 @@ const Login = ({ user, setUser, auth}) => {
   const [buttonLogin, setbuttonLogin] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [dataLoginAttemp, setDataLoginAttemp] = useState([username])
-  const [passing, setPassing] = useState([])
+  const [dataLoginAttemp, setDataLoginAttemp] = useState([])
+  // const [passing, setPassing] = useState()
+  const [loginMessage, setLoginMessage] = useState('')
 
   useEffect (() => {
     const fetchLogin = async () => {
@@ -22,27 +23,29 @@ const Login = ({ user, setUser, auth}) => {
 
   useEffect(() => {
     const inputLogin = () => {
-      setPassing(null)
-      dataLoginAttemp.forEach(e => {
-        const blue = jwt_decode(e)
-        if(username === blue.username && password === blue.password) {
-          setPassing({username: blue.username, password: blue.password})
+      if(dataLoginAttemp) {
+        dataLoginAttemp.forEach((e) => {
+          const blue = jwt_decode(e)
+          if(username === blue.username && password === blue.password) {
+            setbuttonLogin(true)
+          }
         }
-      });
+      );
+      }
     }
     inputLogin()
   },[username, password, dataLoginAttemp])
 
-  useEffect(() => {
-    const buttonLogin = () => {
-      if(passing) {
-        setbuttonLogin(true)
-      } else {
-        setbuttonLogin(false)
-      }
-    }
-    buttonLogin()
-  }, [passing])
+  // useEffect(() => {
+  //   const buttonLogin = () => {
+  //     if(passing) {
+  //       setbuttonLogin(true)
+  //     } else {
+  //       setbuttonLogin(false)
+  //     }
+  //   }
+  //   buttonLogin()
+  // }, [passing])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -62,6 +65,7 @@ const Login = ({ user, setUser, auth}) => {
       login()
       auth()
     } else {
+      setLoginMessage('Please enter a correct username or password')
       console.log('login failed')
     }
   }
@@ -102,6 +106,10 @@ return (
             </Row>
           </div>
         </Form>
+        { loginMessage &&
+          <div className='login-message'>
+            {loginMessage}
+          </div>}
       </div>
     </div>
   )
