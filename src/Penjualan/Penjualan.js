@@ -1,9 +1,12 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
+import Pagination from '../Pagination/Pagination'
 
-const Penjualan = () => {
+const Penjualan = ({wideContent}) => {
   const [transaksi, setTransaksi] = useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [transaksiPerPage] = useState(10)
   
   useEffect(() => {
     const dataJual = async () => {
@@ -13,6 +16,14 @@ const Penjualan = () => {
     }
     dataJual()
   },[])
+
+  const indexLastProject = currentPage * transaksiPerPage;
+  const indexFirstProject = indexLastProject - transaksiPerPage;
+  const currentTransaksi = transaksi.slice(indexFirstProject, indexLastProject);
+
+  const paginate = (pageNumber) => {
+      setCurrentPage(pageNumber)
+  }
 
   const convertDay = (hari) => {
     if( hari === 0 ) {
@@ -38,22 +49,22 @@ const Penjualan = () => {
       <div className='table-record'>
         <Row className='label-record'>
           <Col className='col-2' >Tanggal</Col>
-          <Col className='col-3' >No. Transaksi</Col>
-          <Col>ID Barang</Col>
-          <Col>Nama Barang</Col>
+          <Col className='col-2' >No. Transaksi</Col>
+          <Col className='col-2'>ID Barang</Col>
+          <Col className='col-2'>Nama Barang</Col>
           <Col className='jml' >Jumlah</Col>
           <Col className='jml' >Harga Jual Unit</Col>
           <Col className='jml' >Total Dijual</Col>
         </Row>
         {
-          transaksi.map((dijual) => (
+          currentTransaksi.map((dijual) => (
             <Row className='data-record' >
-              <Col className='col-2' > { convertDay(new Date(dijual.createdAt).getDay()) +', '+new Date(dijual.createdAt).toLocaleDateString()} </Col>
-              <Col className='col-3' > {dijual.no_transaksi_jual} </Col>
-              <Col> {dijual.id_barang} </Col>
+              <Col className='col-2' >{ convertDay(new Date(dijual.createdAt).getDay()) +', '+new Date(dijual.createdAt).toLocaleDateString()} </Col>
+              <Col className='col-2' > {dijual.no_transaksi_jual} </Col>
+              <Col className='col-2'> {dijual.id_barang} </Col>
               {
                 dijual.detail_barang.map((detail) => (
-                  <Col>
+                  <Col className='col-2'>
                     {detail.nama_barang}
                   </Col>
                 ))
@@ -75,6 +86,9 @@ const Penjualan = () => {
           ))
         }
       </div>
+      <Pagination transaksiPerPage={transaksiPerPage} totalTransaksi={transaksi.length} 
+        paginate={paginate} currentPage={currentPage}
+        setCurrentPage={setCurrentPage} wideContent={wideContent} />
     </>
   )
 }

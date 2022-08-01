@@ -21,3 +21,19 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# another Misc
+/Data
+/img/cat-meoooow.gif
+/img/user.png
+/DataBarang/Input_DataBarang-bkup.js
+/DataBarang/Input_DataBarang-bkup2.js
+/Penjualan/Input_Penjualan-bkup.js
+/Penjualan/Input_Penjualan-bkup2.js
+/Penjualan/Input_Penjualan-bkup3.js
+/Penjualan/Input_Penjualan-inputfielddel.js
+/Penjualan/Input_Penjualan-tabelbkup.js
+/Penjualan/Penjualan-bkup.js
+/Penjualan/Penjualan-bkup2.js
+/Pembelian/Input_Pembelian-bkup.js
+/Pembelian/Input_Pembelian-bkup2.js

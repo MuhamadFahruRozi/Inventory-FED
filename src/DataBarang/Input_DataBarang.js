@@ -151,7 +151,7 @@ const Input_Pembelian = () => {
         const stokUrl =`https://inventory-bd-mfr.herokuapp.com/api/inventory/`;
 
         axios.post(stokUrl, stokFormData).then(res => {
-            alert(`Stok data for ${namaBarang[index]} recorded!`)
+            // alert(`Stok data for ${namaBarang[index]} recorded!`)
         }).catch(err =>{
             console.log(err)
         })
@@ -181,8 +181,22 @@ const Input_Pembelian = () => {
         <Row className='row-record'>
           <Col><input type="text" className='input' value={tanggal} readOnly /></Col>
           <Col></Col>
-          <Col className='blue-button' ><Button className='btn btn-secondary' onClick={addField}>[+] Tambah Baris</Button></Col>
-          <Col className='red-button' ><Button className='btn btn-danger' onClick={delField}>[-] Hapus Baris</Button></Col>
+          <Col className='blue-button' >
+            {field.length < 7 ?
+              <Button className='btn btn-secondary' onClick={addField}>[+] Tambah Baris</Button>
+              :
+              <Button className='btn btn-secondary' onClick={addField} disabled>[+] Tambah Baris</Button>
+            }
+            
+          </Col>
+          <Col className='red-button' >
+            {field.length > 1 ?
+              <Button className='btn btn-danger' onClick={delField}>[-] Hapus Baris</Button>
+              :
+              <Button className='btn btn-danger' onClick={delField} disabled>[-] Hapus Baris</Button>
+            }
+            
+          </Col>
           <Col className='save-button' ><Button className='btn btn-primary' onClick={handleSubmit}><BsSave/> Simpan</Button></Col>
         </Row>
         <Row className='label-record'>

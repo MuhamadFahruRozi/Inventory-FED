@@ -1,9 +1,12 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
+import Pagination from '../Pagination/Pagination'
 
-const Pembelian = () => {
+const Pembelian = ({wideContent}) => {
   const [transaksi, setTransaksi] = useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [transaksiPerPage] = useState(10)
   
   useEffect(() => {
     const dataBeli = async () => {
@@ -13,6 +16,14 @@ const Pembelian = () => {
     }
     dataBeli()
   },[])
+
+  const indexLastProject = currentPage * transaksiPerPage;
+  const indexFirstProject = indexLastProject - transaksiPerPage;
+  const currentTransaksi = transaksi.slice(indexFirstProject, indexLastProject);
+
+  const paginate = (pageNumber) => {
+      setCurrentPage(pageNumber)
+  }
 
   const convertDay = (hari) => {
     if( hari === 0 ) {
@@ -37,23 +48,23 @@ const Pembelian = () => {
       <h1>Record Pembelian</h1>
       <div className='table-record'>
         <Row className='label-record'>
-          <Col className='col-2' >Tanggal</Col>
-          <Col className='col-3' >No. Transaksi</Col>
-          <Col>ID Barang</Col>
-          <Col>Nama Barang</Col>
+          <Col className='col-2'>Tanggal</Col>
+          <Col className='col-2' >No. Transaksi</Col>
+          <Col className='col-2' >ID Barang</Col>
+          <Col className='col-2' >Nama Barang</Col>
           <Col className='jml' >Jumlah dibeli</Col>
           <Col className='jml' >Harga Beli Unit</Col>
           <Col className='jml' >Total Dibeli</Col>
         </Row>
         {
-          transaksi.map((dibeli) => (
+          currentTransaksi.map((dibeli) => (
             <Row className='data-record' >
               <Col className='col-2' > { convertDay(new Date(dibeli.createdAt).getDay()) +', '+new Date(dibeli.createdAt).toLocaleDateString()} </Col>
-              <Col className='col-3' > {dibeli.no_transaksi_beli} </Col>
-              <Col> {dibeli.id_barang} </Col>
+              <Col className='col-2' > {dibeli.no_transaksi_beli} </Col>
+              <Col className='col-2' > {dibeli.id_barang} </Col>
               {
                 dibeli.detail_barang.map((detail) => (
-                  <Col>
+                  <Col className='col-2' >
                     {detail.nama_barang}
                   </Col>
                 ))
@@ -75,6 +86,9 @@ const Pembelian = () => {
           ))
         }
       </div>
+      <Pagination transaksiPerPage={transaksiPerPage} totalTransaksi={transaksi.length} 
+        paginate={paginate} currentPage={currentPage}
+        setCurrentPage={setCurrentPage} wideContent={wideContent} />
     </>
   )
 }

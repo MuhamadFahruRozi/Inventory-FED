@@ -3,11 +3,12 @@ import { BsChevronDoubleLeft, BsChevronDoubleRight } from 'react-icons/bs'
 import { AiOutlineSetting, AiTwotoneSetting } from 'react-icons/ai'
 import NavbarWide from './NavbarWide'
 import Setting from './Setting'
-import KS from '../img/ks.jpg'
+import KS from '../img/user.png'
 
-const Sidebar = ({ setWideContent, isAdmin }) => {
+const Sidebar = ({ setWideContent, isAdmin, user }) => {
   const [wideness, setWideness] = useState(true)
   const [setting, setSetting] = useState(false)
+  const [tab, setTab] = useState('')
   
   const handleWideness = (data) => {
     setWideness(data)
@@ -43,7 +44,7 @@ const Sidebar = ({ setWideContent, isAdmin }) => {
           {
             wideness === true ? 
             <div className='username'>
-              Muhamad Fahru Rozi
+              {user.username}
             </div>
             :
             ''
@@ -54,7 +55,7 @@ const Sidebar = ({ setWideContent, isAdmin }) => {
       </div>
       <div xs={3} className='side-nav'>
         {
-          wideness === true ? <NavbarWide isAdmin={isAdmin} /> : ''
+          wideness === true ? <NavbarWide isAdmin={isAdmin} tab={tab} setTab={setTab} /> : ''
         }
         <div className='hide-button side'>
         </div>

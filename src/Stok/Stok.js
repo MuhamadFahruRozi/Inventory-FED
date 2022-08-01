@@ -1,9 +1,12 @@
 import { Col, Row } from 'react-bootstrap'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Pagination from '../Pagination/Pagination'
 
-const Stok = () => {
+const Stok = ({wideContent}) => {
   const [stok, setStok] = useState([])
+  const [currentPage, setCurrentPage] = useState(1);
+  const [transaksiPerPage] = useState(10)
 
   useEffect(() => {
     const fetchStok = async () => {
@@ -14,6 +17,14 @@ const Stok = () => {
     }
     fetchStok()
   },[])
+
+  const indexLastProject = currentPage * transaksiPerPage;
+  const indexFirstProject = indexLastProject - transaksiPerPage;
+  const currentStok = stok.slice(indexFirstProject, indexLastProject);
+
+  const paginate = (pageNumber) => {
+    setCurrentPage(pageNumber)
+  }
 
   return (
     <>
@@ -29,7 +40,7 @@ const Stok = () => {
           <Col className='jml' >Total Sedia Jual</Col>
         </Row>
         {
-          stok.map((item, index) => (
+          currentStok.map((item, index) => (
             <>
             <Row className='data-record stok' key={item.id_barang} >
               <Col> {item.id_barang} </Col>
@@ -63,6 +74,9 @@ const Stok = () => {
           ))
         }
       </div>
+      <Pagination transaksiPerPage={transaksiPerPage} totalTransaksi={stok.length} 
+        paginate={paginate} currentPage={currentPage}
+        setCurrentPage={setCurrentPage} wideContent={wideContent} />
     </>
   )
 }

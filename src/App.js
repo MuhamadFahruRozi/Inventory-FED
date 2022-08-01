@@ -71,7 +71,7 @@ function App() {
         <div className='row-container'>
           {
             login === false ? '' 
-            : <Sidebar setWideContent={setWideContent} isAdmin={isAdmin} />
+            : <Sidebar setWideContent={setWideContent} isAdmin={isAdmin} user={user} />
           }  
           {
             login === false ? 
@@ -84,10 +84,10 @@ function App() {
               <div className='content-fill'>
                 <Routes>
                   <Route path='*' element={ <Navigate to='/'/> } />  
-                  <Route path="/" element={ <Stok /> } />
-                  <Route path="/penjualan" element={ <Penjualan /> } />
-                  <Route path="/pembelian" element={ <Pembelian /> } />
-                  <Route path="/data-barang" element={ <DataBarang /> } />
+                  <Route path="/" element={ <Stok wideContent={wideContent} /> } />
+                  <Route path="/penjualan" element={ <Penjualan wideContent={wideContent} /> } />
+                  <Route path="/pembelian" element={ <Pembelian wideContent={wideContent} /> } />
+                  <Route path="/data-barang" element={ <DataBarang wideContent={wideContent} /> } />
                   <Route path="/input-data-barang" element={ <InputDataBarang /> } />
                   <Route path="/input-penjualan" element={ <InputPenjualan /> } />
                   <Route path="/input-pembelian" element={ <InputPembelian /> } />

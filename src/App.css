@@ -35,30 +35,32 @@
 .sidebar.small{
   width: 3.5vw;
   transition: width 0.2s linear;  
+  position: relative;
+  left: -1.5px
 }
 
 .sidebar-hide, .sidebar-show{
   cursor: pointer;
+  color:white
 }
 
 .picture-div{
   display: flex;
   align-items: center;
-  background-color: blueviolet;
   height: 75%;
 }
 
 .name-div{
   display: flex;
   height: 25%;
-  background-color: blueviolet;
 }
 
 .input-tag{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+  color: white;
+  background-color:rgb(201, 201, 201);
   border-radius: 0 10px 10px 0;
 }
 
@@ -76,7 +78,7 @@
   width: 46px;
   height: 100%;
   transition: width 2s linear;
-  background-color: red;
+  background-color:rgb(51, 51, 51);
   clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 0% 100%, 0% 70%, 0% 0%);
   z-index: 20;
 }
@@ -88,7 +90,7 @@
   width: 46px;
   height: 100%;
   transition: width 2s linear;
-  background-color: red;
+  background-color:rgb(51, 51, 51);
   /* clip-path: polygon(100% 0%, 50% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%); */
   clip-path: polygon(30% 0%, 40% 0%, 10% 30%, 10% 70%, 40% 100%, 0% 100%, 0% 70%, 0% 0%);
 }
@@ -99,7 +101,7 @@
   /* width: 15%; */
   width: 46px;
   transition: width 2s linear;
-  background-color: red;
+  background-color:rgb(51, 51, 51);
   /* clip-path: polygon(100% 0%, 50% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%); */
   clip-path: polygon(30% 0%, 40% 0%, 60% 30%, 60% 70%, 40% 100%, 0% 100%, 0% 70%, 0% 0%);
 }
@@ -110,7 +112,7 @@
   /* width: 15%; */
   width: 46px;
   transition: width 2s linear;
-  background-color: red;
+  background-color:rgb(51, 51, 51);
   /* clip-path: polygon(100% 0%, 50% 50%, 75% 100%, 0% 100%, 0% 50%, 0% 0%); */
   clip-path: polygon(30% 0%, 40% 0%, 60% 30%, 60% 70%, 40% 100%, 0% 100%, 0% 70%, 0% 0%);
 }
@@ -126,6 +128,8 @@
   height: 60%;
   margin: 0 auto 5px;
   display: flex;
+  position: relative;
+  left: -5%;
 }
 
 .photo img{
@@ -139,11 +143,15 @@
   align-items: center;
   justify-content: center;
   font-size: large;
-  background-color: yellow;
+  border-radius: 5%;
+  border: 1px solid black;
+  color: white;
+  background-color:rgb(201, 201, 201);
   width: 85%;
   -webkit-animation:sidetext 1s;
   -moz-animation:sidetext 1s;
   animation-name: sidetext 1s;
+  margin-bottom: 5px;
 }
 
 @keyframes sidetext{
@@ -164,14 +172,12 @@
 .side-nav{
   position: relative;
   display: flex;
-  background-color:rgba(0, 255, 255, 0.603);
   height: 48vh;
   z-index: 10;
 }
 
 .side-div{
   width: 85%;
-  border-top: 1px solid;
   -webkit-animation:sidetext 1s;
   -moz-animation:sidetext 1s;
   animation-name: sidetext 1s;
@@ -192,14 +198,26 @@
   display: flex;
   justify-content: left;
   text-indent: 60px;
+  color:rgb(51, 51, 51);
 }
 
 .link.on{
-  background-color: white;
+  background-color: rgb(121, 121, 121);
+  color: white;
+  width: 80%;
+  display: flex;
+  margin: 0 auto 0;
+  text-indent: 0;
+  border-radius: 5px;
 }
 
 .link:hover{
-  background-color:white;
+  background-color: rgb(121, 121, 121);
+  color: white;
+  width: 80%;
+  text-indent: 0;
+  margin: 0 auto 0;
+  border-radius: 5px;
 }
 
 .made-by{
@@ -207,7 +225,6 @@
   display: flex;
   font-size: 12px;
   height: 17vh;
-  background-color:rgba(0, 255, 255, 0.603);
 }
 
 .setting-menu{
@@ -309,6 +326,22 @@
   z-index: 10;
 }
 
+.pagination.wide{
+  width: 90%;
+  position: fixed;
+  bottom: 10%;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pagination.small{
+  width: 75%;
+  position: fixed;
+  bottom: 10%;
+  justify-content: center;
+  cursor: pointer;
+}
+
 .input{
   width: 100%;
 }
@@ -327,6 +360,7 @@
 
 .table-record{
   margin-top: 40px;
+  font-size: 14px;
 }
 
 .row-label{
@@ -477,6 +511,11 @@ ul li{
   width: 120px;
 }
 
+.tab-notwide{
+  position: relative;
+  left: -1%;
+}
+
 .login-page{
   width: 100vw;
   height: 100vh;
@@ -619,10 +658,12 @@ ul li{
   left: -20%;
   font-size: 85%;
   border-radius: 50%;
+  color:white;
 }
 
 .setting-button:hover{
   background-color: rgb(235, 235, 235);
+  color: rgb(121, 121, 121);
 }
 
 @media (min-width: 600px) {

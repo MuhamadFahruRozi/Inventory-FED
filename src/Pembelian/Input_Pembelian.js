@@ -234,7 +234,7 @@ const Input_Pembelian = () => {
         const purchaseUrl ='https://inventory-bd-mfr.herokuapp.com/api/restock/';
 
         axios.post(purchaseUrl, purchaseFormData).then(res => {
-            alert(`Purchase ${namaBarang[index]} recorded!`)
+            // alert(`Purchase ${namaBarang[index]} recorded!`)
         }).catch(err =>{
             console.log(err)
         })
@@ -249,7 +249,7 @@ const Input_Pembelian = () => {
         const stokUrl =`https://inventory-bd-mfr.herokuapp.com/api/inventory/restock/${idBarang[index]}`;
 
         axios.put(stokUrl, stokFormData).then(res => {
-            alert(`Stok change for ${namaBarang[index]} recorded!`)
+            // alert(`Stok change for ${namaBarang[index]} recorded!`)
         }).catch(err =>{
             console.log(err)
         })
@@ -262,7 +262,7 @@ const Input_Pembelian = () => {
         const barangUrl =`https://inventory-bd-mfr.herokuapp.com/api/barang/restock/${idBarang[index]}`;
 
         axios.put(barangUrl, barangFormData).then(res => {
-            alert(`Item purchase overall for ${namaBarang[index]} recorded!`)
+            // alert(`Item purchase overall for ${namaBarang[index]} recorded!`)
         }).catch(err =>{
             console.log(err)
         })
@@ -279,7 +279,7 @@ const Input_Pembelian = () => {
     const urlTotal ='https://inventory-bd-mfr.herokuapp.com/api/total/restock';
 
     axios.post(urlTotal, totalFormData).then(res => {
-        alert("Total Purchase Recorded!")
+        alert(`Purchase ${noTransaksi} Recorded!`)
     }).catch(err =>{
         console.log(err)
     })
@@ -377,8 +377,20 @@ const Input_Pembelian = () => {
         <Row className='row-record'>
           <Col><input type="text" className='input' value={noTransaksi} readOnly /></Col>
           <Col><input type="text" className='input' value={tanggal} readOnly /></Col>
-          <Col className='blue-button' ><Button className='btn btn-secondary' onClick={addField}>[+] Tambah Baris</Button></Col>
-          <Col className='red-button' ><Button className='btn btn-danger' onClick={delField}>[-] Hapus Baris</Button></Col>
+          <Col className='blue-button' >
+          {field.length < 10 ?
+            <Button className='btn btn-secondary' onClick={addField}>[+] Tambah Baris</Button>
+            :
+            <Button className='btn btn-secondary' onClick={addField} disabled >[+] Tambah Baris</Button>
+          }
+          </Col>
+          <Col className='red-button' >
+          {field.length > 1 ?
+            <Button className='btn btn-danger' onClick={delField}>[-] Hapus Baris</Button>
+            :
+            <Button className='btn btn-danger' onClick={delField} disabled>[-] Hapus Baris</Button>
+          }
+          </Col>
           <Col className='save-button' ><Button className='btn btn-primary' onClick={handleSubmit}><BsSave/> Simpan</Button></Col>
         </Row>
         <Row className='label-record'>

@@ -1,6 +1,5 @@
 import { Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import Stok from '../Stok/Stok'
 import Pembelian from '../Pembelian/Pembelian'
 import Penjualan from '../Penjualan/Penjualan'
@@ -10,9 +9,7 @@ import DataBarang from '../DataBarang/DataBarang'
 import InputDataBarang from '../DataBarang/Input_DataBarang'
 import Admin from '../Adm/Admin'
 
-const NavbarWide = ({ isAdmin }) => {
-  const [tab, setTab] = useState('')
-
+const NavbarWide = ({ isAdmin, tab ,setTab }) => {
   return (
     <div className='side-div'>
         <Row className='input-tag'>
@@ -34,9 +31,10 @@ const NavbarWide = ({ isAdmin }) => {
             Pembelian
         </Link>
         </Row>
-        <Row className={tab === 'IDB' ? 'link on' : 'link'} >
-        <Link className='link' to="/input-data-barang" 
-        element={<InputDataBarang />} onClick={() => setTab('IDB')} >
+        <Row>
+        <Link className={tab === 'IDB' ? 'link on' : 'link'} 
+        to="/input-data-barang" element={<InputDataBarang />} 
+        onClick={() => setTab('IDB')} >
             Data Barang
         </Link>
         </Row>
@@ -46,27 +44,27 @@ const NavbarWide = ({ isAdmin }) => {
             RECORD
         </h5>
         </Row>
-        <Row className={tab === 'STK' ? 'link on' : 'link'} >
-        <Link className='link' to="/" 
-        element={<Stok />} onClick={() => setTab('STK')} >
+        <Row>
+        <Link className={tab === 'STK' ? 'link on' : 'link'} 
+        to="/" element={<Stok />} onClick={() => setTab('STK')} >
             Stok
         </Link>
         </Row>
-        <Row className={tab === 'RPJ' ? 'link on' : 'link'} >
-        <Link className='link' to="/penjualan" 
-        element={<Penjualan />} onClick={() => setTab('RPJ')} >
+        <Row>
+        <Link className={tab === 'RPJ' ? 'link on' : 'link'}
+        to="/penjualan" element={<Penjualan />} onClick={() => setTab('RPJ')} >
             Penjualan
         </Link>
         </Row>
-        <Row className={tab === 'RPB' ? 'row on' : 'row'} >
-        <Link className='link' to="/pembelian" 
-        element={<Pembelian />} onClick={() => setTab('RPB')} >
+        <Row>
+        <Link  className={tab === 'RPB' ? 'link on' : 'link'} 
+        to="/pembelian" element={<Pembelian />} onClick={() => setTab('RPB')} >
             Pembelian
         </Link>
         </Row>
-        <Row className={tab === 'DBR' ? 'row on' : 'row'} >
-        <Link className='link' to="/data-barang" 
-        element={<DataBarang />} onClick={() => setTab('DBR')} >
+        <Row>
+        <Link className={tab === 'DBR' ? 'link on' : 'link'} 
+        to="/data-barang" element={<DataBarang />} onClick={() => setTab('DBR')} >
             Data Barang
         </Link>
         </Row>
@@ -78,9 +76,9 @@ const NavbarWide = ({ isAdmin }) => {
                 ADMIN
             </h5>
             </Row>
-            <Row className={tab === 'USL' ? 'link on' : 'link'} >
-            <Link className='link' to="/adm" 
-            element={<Admin />} onClick={() => setTab('USL')} >
+            <Row>
+            <Link  className={tab === 'USL' ? 'link on' : 'link'}
+            to="/adm" element={<Admin />} onClick={() => setTab('USL')} >
                 User List
             </Link>
             </Row>
