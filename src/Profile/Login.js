@@ -4,11 +4,9 @@ import { AiTwotoneEyeInvisible, AiTwotoneEye } from 'react-icons/ai'
 import axios from 'axios'
 import jwt_decode from 'jwt-decode'
 
-const Login = ({ user, setUser, auth}) => {
+const Login = ({ setUser, auth, fetchLogin, username, password, setUsername, setPassword}) => {
   const [visibility, setVisibility] = useState(false)
   const [buttonLogin, setbuttonLogin] = useState(false)
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
   const [dataLoginAttemp, setDataLoginAttemp] = useState([])
   // const [passing, setPassing] = useState()
   const [loginMessage, setLoginMessage] = useState('')
@@ -51,18 +49,7 @@ const Login = ({ user, setUser, auth}) => {
     e.preventDefault()
 
     if(username && password) {
-      const login = async () => {
-        let loginFormData = new FormData();
-        loginFormData.append('username', username);
-        loginFormData.append('password', password);
-  
-        const loginUrl ='https://inventory-bd-mfr.herokuapp.com/api/user/login/';
-  
-        const res = await axios.post(loginUrl, loginFormData)
-        // console.log(res.data)
-        setUser(res.data)
-      }
-      login()
+      fetchLogin()
       auth()
     } else {
       setLoginMessage('Please enter a correct username or password')

@@ -1,14 +1,14 @@
-const Pagination = ({ transaksiPerPage, totalTransaksi, paginate, currentPage, wideContent }) => {
+const UserPagination = ({ userPerPage, totaluser, paginate, currentPage, wideContent }) => {
     const pageNumbers = [];
 
-    for(let i=1; i <= Math.ceil(totalTransaksi / transaksiPerPage); i++) {
+    for(let i=1; i <= Math.ceil(totaluser / userPerPage); i++) {
         pageNumbers.push(i)
     }
 
     return (
-        <div className={ wideContent ? "pagination wide" : "pagination small"}>        
+        <div className={ wideContent ? "user-pagination wide" : "user-pagination small"}>        
             {pageNumbers.map(number => (
-                <li className="page-number">
+                <li className="user-page-number">
                     <ul key={number} onClick={() => paginate(number)}
                         className={currentPage === number ? "page-link active" : "page-link"}>
                         {number}
@@ -19,4 +19,4 @@ const Pagination = ({ transaksiPerPage, totalTransaksi, paginate, currentPage, w
     )
 }
 
-export default Pagination
+export default UserPagination

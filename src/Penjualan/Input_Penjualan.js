@@ -4,7 +4,7 @@ import { Row, Col, Button, Form } from 'react-bootstrap'
 import { BsSave } from 'react-icons/bs'
 import Autocomplete from './Autocomplete'
 
-const Input_Penjualan = () => {
+const Input_Penjualan = ({ bahasaApp, tbTheme }) => {
   const [field, setField] = useState(['field'])
   const [noTransaksi, setNoTransaksi] = useState('')
   const [idBarang, setIdBarang] = useState([])
@@ -34,23 +34,23 @@ const Input_Penjualan = () => {
     const hariData = () => {
       const getHari = new Date().getDay()
       if( getHari === 0 ) {
-        setHari('Minggu')
+        setHari(bahasaApp.hrmi)
       } else if ( getHari === 1 ) {
-        setHari('Senin')
+        setHari(bahasaApp.hrse)
       } else if ( getHari === 2 ) {
-        setHari('Selasa')
+        setHari(bahasaApp.hrsel)
       } else if ( getHari === 3 ) {
-        setHari('Rabu')
+        setHari(bahasaApp.hrrb)
       } else if ( getHari === 4 ) {
-        setHari('Kamis')
+        setHari(bahasaApp.hrkm)
       } else if ( getHari === 5 ) {
-        setHari('Jumat')
+        setHari(bahasaApp.hrju)
       } else {
-        setHari('Sabtu')
+        setHari(bahasaApp.hrsa)
       }
     }
     hariData()
-  }, [])
+  }, [bahasaApp])
 
   useEffect(() => {
     setTanggal(hari +', '+new Date().toLocaleDateString())
@@ -415,11 +415,11 @@ const Input_Penjualan = () => {
 
   return (
     <div>
-      <h1>Penjualan</h1>
+      <h1> { bahasaApp.penjualan } </h1>
       <div className='table-record'>
         <Row className='row-label'>
-          <Col>No.Transaksi:</Col>
-          <Col>Tanggal:</Col>
+          <Col>{ bahasaApp.nmt }</Col>
+          <Col>{ bahasaApp.tgl }</Col>
           <Col></Col>
           <Col></Col>
           <Col></Col>
@@ -429,26 +429,28 @@ const Input_Penjualan = () => {
           <Col><input type="text" className='input' value={tanggal} readOnly /></Col>
           <Col className='blue-button' >
           {field.length < 10 ?
-            <Button className='btn btn-secondary' onClick={addField}>[+] Tambah Baris</Button>
+            <Button className='btn btn-secondary' onClick={addField}>[+] { bahasaApp.tb }</Button>
             :
-            <Button className='btn btn-secondary' onClick={addField} disabled >[+] Tambah Baris</Button>
+            <Button className='btn btn-secondary' onClick={addField} disabled >[+] { bahasaApp.tb }</Button>
           }
           </Col>
           <Col className='red-button' >
           {field.length > 1 ?
-            <Button className='btn btn-danger' onClick={delField}>[-] Hapus Baris</Button>
+            <Button className='btn btn-danger' onClick={delField}>[-] { bahasaApp.hb }</Button>
             :
-            <Button className='btn btn-danger' onClick={delField} disabled>[-] Hapus Baris</Button>
+            <Button className='btn btn-danger' onClick={delField} disabled>[-] { bahasaApp.hb }</Button>
           }
           </Col>
-          <Col className='save-button' ><Button className='btn btn-primary' onClick={handleSubmit}><BsSave/> Simpan</Button></Col>
+          <Col className='save-button' ><Button className='btn btn-primary' onClick={handleSubmit}><BsSave/> { bahasaApp.sm }</Button></Col>
         </Row>
-        <Row className='label-record'>
-          <Col>ID Barang</Col>
-          <Col>Nama Barang</Col>
-          <Col>Jumlah</Col>
-          <Col>Harga Jual Unit</Col>
-          <Col>Total Per-Item</Col>
+        <Row className={`label-record ${tbTheme} ${
+            tbTheme === 'black' || tbTheme === 'gray' || tbTheme === 'blue' || tbTheme === 'red' ?
+            'white-text' : '' }`}>
+          <Col>{ bahasaApp.ibar }</Col>
+          <Col>{ bahasaApp.nbar }</Col>
+          <Col>{ bahasaApp.jm }</Col>
+          <Col>{ bahasaApp.hj }</Col>
+          <Col>{ bahasaApp.tpi }</Col>
         </Row>
         <Form onSubmit={handleSubmit} >
           {
@@ -485,7 +487,7 @@ const Input_Penjualan = () => {
             <Col></Col>
             <Col></Col>
             <Col></Col>
-            <Col>Total Penjualan</Col>
+            <Col>{ bahasaApp.ttj }</Col>
             <Col><input type="text" className='total-all' value={totalAll} readOnly/></Col>
           </Row>
         </Form>

@@ -3,7 +3,7 @@ import { Row, Col } from 'react-bootstrap'
 import axios from 'axios'
 import Pagination from '../Pagination/Pagination'
 
-const DataBarang = ({wideContent}) => {
+const DataBarang = ({wideContent, bahasaApp, tbTheme}) => {
   const [barang, setBarang] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [transaksiPerPage] = useState(10)
@@ -29,17 +29,19 @@ const DataBarang = ({wideContent}) => {
 
   return (
     <>
-      <h1>Data Barang</h1>
+      <h1>{bahasaApp.dtbrg}</h1>
       <div className='table-record'>
-        <Row className='label-record'>
-          <Col>ID Barang</Col>
-          <Col>Nama Barang</Col>
-          <Col className='jml' >Harga Beli / Unit</Col>
-          <Col className='jml' >Harga Jual / Unit</Col>
-          <Col className='jml' >Total Jumlah Dibeli</Col>
-          <Col className='jml' >Total Harga Dibeli</Col>
-          <Col className='jml' >Total Jumlah Dijual</Col>
-          <Col className='jml' >Total Harga Dijual</Col>
+        <Row className={`label-record ${tbTheme} ${
+            tbTheme === 'black' || tbTheme === 'gray' || tbTheme === 'blue' || tbTheme === 'red' ?
+            'white-text' : '' }`}>
+          <Col>{bahasaApp.ibar}</Col>
+          <Col>{bahasaApp.nbar}</Col>
+          <Col className='jml' >{bahasaApp.hb}</Col>
+          <Col className='jml' >{bahasaApp.hj}</Col>
+          <Col className='jml' >{bahasaApp.ttab}</Col>
+          <Col className='jml' >{bahasaApp.ttnb}</Col>
+          <Col className='jml' >{bahasaApp.ttaj}</Col>
+          <Col className='jml' >{bahasaApp.ttnj}</Col>
         </Row>
         {
           currentBarang.map((item) => (

@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Pagination from '../Pagination/Pagination'
 
-const Stok = ({wideContent}) => {
+const Stok = ({wideContent, bahasaApp, tbTheme}) => {
   const [stok, setStok] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [transaksiPerPage] = useState(10)
@@ -28,16 +28,18 @@ const Stok = ({wideContent}) => {
 
   return (
     <>
-      <h1>Stok</h1>
+      <h1>{bahasaApp.stok}</h1>
       <div className='table-record'>
-        <Row className='label-record'>
-          <Col>ID Barang</Col>
-          <Col>Nama Barang</Col>
-          <Col className='jml' >Jumlah Tersedia</Col>
-          <Col className='jml' >Harga Beli Unit</Col>
-          <Col className='jml' >Harga Jual Unit</Col>
-          <Col className='jml' >Total Dibeli</Col>
-          <Col className='jml' >Total Sedia Jual</Col>
+        <Row className={`label-record ${tbTheme} ${
+            tbTheme === 'black' || tbTheme === 'gray' || tbTheme === 'blue' || tbTheme === 'red' ?
+            'white-text' : '' }`}>
+          <Col>{bahasaApp.ibar}</Col>
+          <Col>{bahasaApp.nbar}</Col>
+          <Col className='jml' >{bahasaApp.jmter}</Col>
+          <Col className='jml' >{bahasaApp.hb}</Col>
+          <Col className='jml' >{bahasaApp.hj}</Col>
+          <Col className='jml' >{bahasaApp.ttb}</Col>
+          <Col className='jml' >{bahasaApp.ttsj}</Col>
         </Row>
         {
           currentStok.map((item, index) => (

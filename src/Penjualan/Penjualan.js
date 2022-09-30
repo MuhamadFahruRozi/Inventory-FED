@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Row, Col } from 'react-bootstrap'
 import Pagination from '../Pagination/Pagination'
 
-const Penjualan = ({wideContent}) => {
+const Penjualan = ({wideContent, bahasaApp, tbTheme}) => {
   const [transaksi, setTransaksi] = useState([])
   const [currentPage, setCurrentPage] = useState(1);
   const [transaksiPerPage] = useState(10)
@@ -27,34 +27,36 @@ const Penjualan = ({wideContent}) => {
 
   const convertDay = (hari) => {
     if( hari === 0 ) {
-      return 'Minggu'
+      return (bahasaApp.hrmi)
     } else if ( hari === 1 ) {
-      return 'Senin'
+      return (bahasaApp.hrse)
     } else if ( hari === 2 ) {
-      return 'Selasa'
+      return (bahasaApp.hrsel)
     } else if ( hari === 3 ) {
-      return 'Rabu'
+      return (bahasaApp.hrrb)
     } else if ( hari === 4 ) {
-      return 'Kamis'
+      return (bahasaApp.hrkm)
     } else if ( hari === 5 ) {
-      return 'Jumat'
+      return (bahasaApp.hrju)
     } else if ( hari === 6 ) {
-      return 'Sabtu'
+      return (bahasaApp.hrsa)
     }
   }
 
   return (
     <>
-      <h1>Record Penjualan</h1>
+      <h1>{bahasaApp.rcpen}</h1>
       <div className='table-record'>
-        <Row className='label-record'>
-          <Col className='col-2' >Tanggal</Col>
-          <Col className='col-2' >No. Transaksi</Col>
-          <Col className='col-2'>ID Barang</Col>
-          <Col className='col-2'>Nama Barang</Col>
-          <Col className='jml' >Jumlah</Col>
-          <Col className='jml' >Harga Jual Unit</Col>
-          <Col className='jml' >Total Dijual</Col>
+        <Row className={`label-record ${tbTheme} ${
+            tbTheme === 'black' || tbTheme === 'gray' || tbTheme === 'blue' || tbTheme === 'red' ?
+            'white-text' : '' }`} >
+          <Col className='col-2' >{bahasaApp.tgl2}</Col>
+          <Col className='col-2' >{bahasaApp.nmt2}</Col>
+          <Col className='col-2'>{bahasaApp.ibar}</Col>
+          <Col className='col-2'>{bahasaApp.nbar}</Col>
+          <Col className='jml' >{bahasaApp.jm}</Col>
+          <Col className='jml' >{bahasaApp.hj}</Col>
+          <Col className='jml' >{bahasaApp.ttj}</Col>
         </Row>
         {
           currentTransaksi.map((dijual) => (

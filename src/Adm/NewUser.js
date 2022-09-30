@@ -4,30 +4,13 @@ import { MdFileUpload } from 'react-icons/md'
 import axios from 'axios'
 import KS from '../img/ks.jpg'
 
-const Profile = ({ user, temp, setUser, fetchLogin }) => {
+const NewUser = () => {
   const [newUsername, setNewUsername] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [newEmail, setNewEmail] = useState('')
   const [newStatus, setNewStatus] = useState('')
   const [gambar, setGambar] = useState('')
   const [preview, setPreview] = useState('')
-  // const [refresh, setRefresh] = useState(0)
-
-  const timerender = useRef(null)
-  useEffect(() => {
-    return () => clearTimeout(timerender.current);
-  },[])
-
-  useEffect(() => {
-    const fillInput = () => {
-      setNewUsername(user.username)
-      setNewEmail(user.email)
-      setNewPassword(user.username)
-      setNewStatus(user.status)
-      setPreview(user.pic_url)
-    }
-    fillInput()
-  },[user])
 
   const handleFile = (e) => {
     setGambar(e.target.files[0])
@@ -44,7 +27,7 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
         
-    const url =`https://inventory-bd-mfr.herokuapp.com/api/user/${user.slug}`;
+    const url ='https://inventory-bd-mfr.herokuapp.com/api/user/';
 
     if(gambar === ""){
         let formData = new FormData();
@@ -52,10 +35,9 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
         formData.append('email', newEmail)
         formData.append('password', newPassword)
         formData.append('status', newStatus)
-        axios.put(url, formData).then(res => {
-            // setUser(res.data)
-            // console.log(res.data)
-            alert("Profile successfuly changed!")
+        formData.append('propic', gambar);
+        axios.post(url, formData).then(res => {
+            alert("New user successfuly added!")
         }).catch(err =>{
             console.log(err)
         })
@@ -66,19 +48,17 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
         formData.append('password', newPassword)
         formData.append('status', newStatus)
         formData.append('propic', gambar);
-        axios.put(url, formData).then(res => {
-            // setUser(res.data)
-            // console.log(res.data)
-            alert("Profile successfuly changed!")
+        axios.post(url, formData).then(res => {
+          alert("New user successfuly added!")
         }).catch(err =>{
             console.log(err)
         })
     }
-    timerender.current = setTimeout(() => fetchLogin(), 6000);
   }
 
   return (
     <div className='profile-page'>
+      
       <div className='photo-profile'>
         <img src={preview ? preview : KS} alt="" />
         <div className="overlay">
@@ -93,8 +73,6 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
           placeholder="Add Picture" 
           onChange={handleFile} />
         </div>
-        
-        
       </div>
       
       <Form onSubmit={handleSubmit} >
@@ -146,4 +124,4 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
   )
 }
 
-export default Profile
+export default NewUser

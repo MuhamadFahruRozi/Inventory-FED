@@ -9,75 +9,75 @@ import DataBarang from '../DataBarang/DataBarang'
 import InputDataBarang from '../DataBarang/Input_DataBarang'
 import Admin from '../Adm/Admin'
 
-const NavbarWide = ({ isAdmin, tab ,setTab }) => {
+const NavbarWide = ({ isAdmin, tab ,setTab, bahasaApp, sbTagTheme, sbLinkTheme }) => {
   return (
     <div className='side-div'>
-        <Row className='input-tag'>
+        <Row className={`input-tag ${sbTagTheme}`}>
         <h5>
-            INPUT
+            {bahasaApp.mskn}
         </h5>
         </Row>
         <Row>
-        <Link className={tab === 'IPJ' ? 'link on' : 'link'} 
+        <Link className={tab === 'IPJ' ? `link on ${sbLinkTheme}` : 'link'} 
         to="/input-penjualan" element={<InputPenjualan /> }  
         onClick={() => setTab('IPJ')} >
-            Penjualan
+            {bahasaApp.penjualan}
         </Link>
         </Row>
         <Row>
-        <Link  className={tab === 'IPB' ? 'link on' : 'link'} 
+        <Link  className={tab === 'IPB' ? `link on ${sbLinkTheme}` : 'link'} 
         to="/input-pembelian" element={<InputPembelian />} 
         onClick={() => setTab('IPB')} >
-            Pembelian
+            {bahasaApp.pembelian}
         </Link>
         </Row>
         <Row>
-        <Link className={tab === 'IDB' ? 'link on' : 'link'} 
+        <Link className={tab === 'IDB' ? `link on ${sbLinkTheme}` : 'link'} 
         to="/input-data-barang" element={<InputDataBarang />} 
         onClick={() => setTab('IDB')} >
-            Data Barang
+            {bahasaApp.dtbrg}
         </Link>
         </Row>
         -------------------------------
-        <Row className='input-tag'>
+        <Row className={`input-tag ${sbTagTheme}`}>
         <h5>
-            RECORD
+            {bahasaApp.rkmn}
         </h5>
         </Row>
         <Row>
-        <Link className={tab === 'STK' ? 'link on' : 'link'} 
+        <Link className={tab === 'STK' ? `link on ${sbLinkTheme}` : 'link'} 
         to="/" element={<Stok />} onClick={() => setTab('STK')} >
-            Stok
+            {bahasaApp.stok}
         </Link>
         </Row>
         <Row>
-        <Link className={tab === 'RPJ' ? 'link on' : 'link'}
+        <Link className={tab === 'RPJ' ? `link on ${sbLinkTheme}` : 'link'}
         to="/penjualan" element={<Penjualan />} onClick={() => setTab('RPJ')} >
-            Penjualan
+            {bahasaApp.penjualan}
         </Link>
         </Row>
         <Row>
-        <Link  className={tab === 'RPB' ? 'link on' : 'link'} 
+        <Link  className={tab === 'RPB' ? `link on ${sbLinkTheme}` : 'link'} 
         to="/pembelian" element={<Pembelian />} onClick={() => setTab('RPB')} >
-            Pembelian
+            {bahasaApp.pembelian}
         </Link>
         </Row>
         <Row>
-        <Link className={tab === 'DBR' ? 'link on' : 'link'} 
+        <Link className={tab === 'DBR' ? `link on ${sbLinkTheme}` : 'link'} 
         to="/data-barang" element={<DataBarang />} onClick={() => setTab('DBR')} >
-            Data Barang
+            {bahasaApp.dtbrg}
         </Link>
         </Row>
         { isAdmin &&
             <>
             -------------------------------
-            <Row className='input-tag'>
+            <Row className={`input-tag ${sbTagTheme}`}>
             <h5>
                 ADMIN
             </h5>
             </Row>
             <Row>
-            <Link  className={tab === 'USL' ? 'link on' : 'link'}
+            <Link  className={tab === 'USL' ? `link on ${sbLinkTheme}` : 'link'}
             to="/adm" element={<Admin />} onClick={() => setTab('USL')} >
                 User List
             </Link>

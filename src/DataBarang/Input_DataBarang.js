@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { Row, Col, Button, Form } from 'react-bootstrap'
 import { BsSave } from 'react-icons/bs'
 
-const Input_Pembelian = () => {
+const Input_Pembelian = ({bahasaApp, tbTheme}) => {
   const [field, setField] = useState([0])
   // const [fieldCount, setFieldCount] = useState(0)
   const [idBarang, setIdBarang] = useState([])
@@ -17,19 +17,19 @@ const Input_Pembelian = () => {
     const hariData = () => {
       const getHari = new Date().getDay()
       if( getHari === 0 ) {
-        setHari('Minggu')
+        setHari(bahasaApp.hrmi)
       } else if ( getHari === 1 ) {
-        setHari('Senin')
+        setHari(bahasaApp.hrse)
       } else if ( getHari === 2 ) {
-        setHari('Selasa')
+        setHari(bahasaApp.hrsel)
       } else if ( getHari === 3 ) {
-        setHari('Rabu')
+        setHari(bahasaApp.hrrb)
       } else if ( getHari === 4 ) {
-        setHari('Kamis')
+        setHari(bahasaApp.hrkm)
       } else if ( getHari === 5 ) {
-        setHari('Jumat')
+        setHari(bahasaApp.hrju)
       } else {
-        setHari('Sabtu')
+        setHari(bahasaApp.hrsa)
       }
     }
     hariData()
@@ -46,7 +46,7 @@ const Input_Pembelian = () => {
     }
     firsthandleIdBarang()
 
-  }, [])
+  }, [bahasaApp])
 
   // useEffect(() => {
   //   const handleIdBarang = () => {
@@ -169,10 +169,10 @@ const Input_Pembelian = () => {
   
   return (
     <div>
-      <h1>Pembelian</h1>
+      <h1>{bahasaApp.dtbrg}</h1>
       <div className='table-record'>
         <Row className='row-label'>
-          <Col>Tanggal:</Col>
+          <Col>{bahasaApp.tgl}</Col>
           <Col></Col>
           <Col></Col>
           <Col></Col>
@@ -183,27 +183,29 @@ const Input_Pembelian = () => {
           <Col></Col>
           <Col className='blue-button' >
             {field.length < 7 ?
-              <Button className='btn btn-secondary' onClick={addField}>[+] Tambah Baris</Button>
+              <Button className='btn btn-secondary' onClick={addField}>[+] {bahasaApp.tb}</Button>
               :
-              <Button className='btn btn-secondary' onClick={addField} disabled>[+] Tambah Baris</Button>
+              <Button className='btn btn-secondary' onClick={addField} disabled>[+] {bahasaApp.tb}</Button>
             }
             
           </Col>
           <Col className='red-button' >
             {field.length > 1 ?
-              <Button className='btn btn-danger' onClick={delField}>[-] Hapus Baris</Button>
+              <Button className='btn btn-danger' onClick={delField}>[-] {bahasaApp.hb}</Button>
               :
-              <Button className='btn btn-danger' onClick={delField} disabled>[-] Hapus Baris</Button>
+              <Button className='btn btn-danger' onClick={delField} disabled>[-] {bahasaApp.hb}</Button>
             }
             
           </Col>
-          <Col className='save-button' ><Button className='btn btn-primary' onClick={handleSubmit}><BsSave/> Simpan</Button></Col>
+          <Col className='save-button' ><Button className='btn btn-primary' onClick={handleSubmit}><BsSave/> {bahasaApp.sm}</Button></Col>
         </Row>
-        <Row className='label-record'>
-          <Col>ID Barang</Col>
-          <Col>Nama Barang</Col>
-          <Col className='jml' >Harga Beli / Unit (Rp)</Col>
-          <Col className='jml' >Harga Jual / Unit (Rp)</Col>
+        <Row className={`label-record ${tbTheme} ${
+            tbTheme === 'black' || tbTheme === 'gray' || tbTheme === 'blue' || tbTheme === 'red' ?
+            'white-text' : '' }`}>
+          <Col>{bahasaApp.ibar}</Col>
+          <Col>{bahasaApp.nbar}</Col>
+          <Col className='jml' >{bahasaApp.hb}</Col>
+          <Col className='jml' >{bahasaApp.hj}</Col>
         </Row>
         <Form onSubmit={handleSubmit} >
           {
@@ -230,11 +232,11 @@ const Input_Pembelian = () => {
       </div>
       <div className='note-barang'>
         <ul className='note-ul'>
-          <li>* Jumlah barang akan terhitung otomatis 0 unit saat data barang pertama kali dibuat</li>
-          <li>* Total jumlah dibeli akan terhitung otomatis 0 unit saat data barang pertama kali dibuat</li>
-          <li>* Total dibeli akan terhitung otomatis 0 Rupiah saat data barang pertama kali dibuat</li>
-          <li>* Total jumlah dijual akan terhitung otomatis 0 unit saat data barang pertama kali dibuat</li>
-          <li>* Total dijual akan terhitung otomatis 0 Rupiah saat data barang pertama kali dibuat</li>
+          <li>{bahasaApp.dtbr1}</li>
+          <li>{bahasaApp.dtbr2}</li>
+          <li>{bahasaApp.dtbr3}</li>
+          <li>{bahasaApp.dtbr4}</li>
+          <li>{bahasaApp.dtbr5}</li>
         </ul>
       </div>
     </div>
