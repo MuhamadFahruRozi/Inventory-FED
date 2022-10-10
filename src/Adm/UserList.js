@@ -1,9 +1,8 @@
-import axios from 'axios';
 import { useState } from 'react';
 import UserCard from './UserCard'
 import UserPagination from '../Pagination/UserPagination';
 
-const UserList = ({ users, wideContent }) => {
+const UserList = ({ users, wideContent, axiosJWT, user }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [userPerPage] = useState(4)
 
@@ -15,29 +14,16 @@ const UserList = ({ users, wideContent }) => {
       setCurrentPage(pageNumber)
   }
 
-  const handleDelete = (us) => {
-    // console.log(`https://inventory-bd-mfr.herokuapp.com/api/user/${us.user_id}`)
-
-    const url =`https://inventory-bd-mfr.herokuapp.com/api/user/delete/${us.user_id}`;
-
-    axios.delete(url).then(res => {
-        alert("User deleted!")
-    }).catch(err =>{
-        console.log(err)
-    })
-
-  }
-
   return (
     <div className='adm-userlist'>
         {
         currentUsers.map((us) => 
-          <UserCard us={us} handleDelete={() => handleDelete(us)} /> 
+          <UserCard us={us} axiosJWT={axiosJWT}  user={user} /> 
         )
         }
       <UserPagination userPerPage={userPerPage} totaluser={users.length} 
       paginate={paginate} currentPage={currentPage}
-      setCurrentPage={setCurrentPage} wideContent={wideContent} />
+      setCurrentPage={setCurrentPage} wideContent={wideContent}/>
     </div>
   )
 }

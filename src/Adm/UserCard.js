@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap'
 import KS from '../img/ks.jpg'
 import { useState, useEffect } from 'react'
 
-const UserCard = ({ us, handleDelete }) => {
+const UserCard = ({ us, axiosJWT, user }) => {
   const [newClientUsername, setNewClientUsername] = useState('')
   const [newClientEmail, setNewClientEmail] = useState('')
   const [newClientPassword, setNewClientPassword] = useState('')
@@ -28,7 +28,7 @@ const UserCard = ({ us, handleDelete }) => {
     setNewClientEmail(us.email)
     setNewClientPassword(us.password)
     setNewClientStatus(us.status)
-    setNewClientImage(us.pic_url)
+    setNewClientImage(us.pic_url)    
   }
 
   const handleEdit = (e) => {
@@ -46,6 +46,41 @@ const UserCard = ({ us, handleDelete }) => {
     }).catch(err =>{
         console.log(err)
     })
+
+    if(us.slug === user.slug) {
+      localStorage.setItem('punm', newClientUsername)
+      localStorage.setItem('pswd', newClientPassword)
+    }
+  }
+
+  // console.log(user)
+
+  const handleDelete = (id) => {
+
+    console.log(user.accessToken)
+
+    // const usr = user;
+
+    // console.log(usr)
+
+    const url =`https://inventory-bd-mfr.herokuapp.com/api/user/delete/${id}`;
+
+    
+    // let formData = new FormData();
+    // formData.append('status', adm)
+
+    axiosJWT.delete(url, {
+      headers: {
+        authorization: user.accessToken,
+        // 'Content-Type': 'multipart/form-data'
+       },
+    }).then(res => {
+        console.log('response', res.data)
+        alert("User deleted!")
+    }).catch(err =>{
+        console.log(err)
+    })
+
   }
     
   return (
@@ -79,7 +114,7 @@ const UserCard = ({ us, handleDelete }) => {
             editMode && 
             <Button className='btn btn-success btn-userlist' onClick={handleEdit}>Save</Button>
           }  
-            <Button className='btn btn-danger btn-userlist' onClick={handleDelete}>Delete</Button>
+            <Button className='btn btn-danger btn-userlist' onClick={() => handleDelete(us.user_id)}>Delete</Button>
         </div>
     </div>
   )

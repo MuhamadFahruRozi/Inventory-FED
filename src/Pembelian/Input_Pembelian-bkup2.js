@@ -240,10 +240,6 @@ const Input_Penjualan = () => {
     setAuto('')
   }
 
-  // console.log(noTransaksi ,idBarang, namaBarang, jumlah, harga, total ,totalAll)
-  console.log(dataBarang)
-  // console.log(field)
-
   return (
     <div onBlur={handleBlur}>
       <h1>Penjualan</h1>

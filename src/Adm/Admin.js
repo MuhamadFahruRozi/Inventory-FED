@@ -5,7 +5,7 @@ import axios from "axios"
 import {Button} from 'react-bootstrap'
 import {BsFillPlusCircleFill} from 'react-icons/bs'
 
-const Admin = ({ wideContent }) => {
+const Admin = ({ wideContent, axiosJWT, user }) => {
   let navigate = useNavigate();
   const [users, setUsers] = useState([])
 
@@ -26,7 +26,7 @@ const Admin = ({ wideContent }) => {
           <BsFillPlusCircleFill className="add-user-icon" /> Add User
         </Button>
       </div>
-      <UserList users={users} wideContent={wideContent}/>
+      <UserList users={users} wideContent={wideContent} axiosJWT={axiosJWT} user={user} />
     </div>
   )
 }

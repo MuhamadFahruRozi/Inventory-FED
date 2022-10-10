@@ -12,7 +12,7 @@ const DataBarang = ({wideContent, bahasaApp, tbTheme}) => {
     const { data } = await axios.get("https://inventory-bd-mfr.herokuapp.com/api/barang/");
     const allData = data;
     setBarang(allData)
-    console.log(allData)
+    // console.log(allData)
   }
 
   useEffect(() => {

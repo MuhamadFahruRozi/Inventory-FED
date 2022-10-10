@@ -4,7 +4,7 @@ import { MdFileUpload } from 'react-icons/md'
 import axios from 'axios'
 import KS from '../img/ks.jpg'
 
-const Profile = ({ user, temp, setUser, fetchLogin }) => {
+const Profile = ({ user, temp, setUser, fetchLoginPersist }) => {
   const [newUsername, setNewUsername] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [newEmail, setNewEmail] = useState('')
@@ -22,7 +22,7 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
     const fillInput = () => {
       setNewUsername(user.username)
       setNewEmail(user.email)
-      setNewPassword(user.username)
+      setNewPassword(user.password)
       setNewStatus(user.status)
       setPreview(user.pic_url)
     }
@@ -43,6 +43,12 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    localStorage.setItem('punm', newUsername)
+    localStorage.setItem('pswd', newPassword)
+    setUser({
+      ...user,
+      pic_url: preview
+    })
         
     const url =`https://inventory-bd-mfr.herokuapp.com/api/user/${user.slug}`;
 
@@ -74,7 +80,7 @@ const Profile = ({ user, temp, setUser, fetchLogin }) => {
             console.log(err)
         })
     }
-    timerender.current = setTimeout(() => fetchLogin(), 6000);
+    timerender.current = setTimeout(() => fetchLoginPersist(), 6000);
   }
 
   return (

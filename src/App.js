@@ -27,7 +27,6 @@ function App() {
   const [password, setPassword] = useState('')
   const [login, setLogin] = useState(false)
   const [user, setUser] = useState([])
-  const [temp, setTemp] = useState(user.slug)
   const [isAdmin, setIsAdmin] = useState(false)
   const [isBhs, setIsBhs] = useState(true)
   const [bahasaApp, setBahasaApp] = useState(bahasa[0])
@@ -42,8 +41,27 @@ function App() {
   }, [sbTheme])
 
   useEffect(() => {
-    setTemp(user.slug)
-  },[user])
+    if(localStorage.getItem('prsu') !== null) {
+      setUsername(localStorage.getItem('punm'))
+      setPassword(localStorage.getItem('pswd'))
+      fetchLoginPersist()
+      setLogin(true)
+    } else {
+      setLogin(false)
+    }
+  },[])
+
+  const fetchLoginPersist = async () => {
+    let loginFormData = new FormData();
+    loginFormData.append('username', localStorage.getItem('punm'));
+    loginFormData.append('password', localStorage.getItem('pswd'));
+
+    const loginUrl ='https://inventory-bd-mfr.herokuapp.com/api/user/login/';
+
+    const res = await axios.post(loginUrl, loginFormData)
+    setUser(res.data)
+  }
+
 
   const fetchLogin = async () => {
     let loginFormData = new FormData();
@@ -54,15 +72,11 @@ function App() {
 
     const res = await axios.post(loginUrl, loginFormData)
     setUser(res.data)
-    // localStorage.setItem('user', res.data)
+    // setPersist(res.data.accessToken)
+    localStorage.setItem('prsu', res.data.accessToken)
+    localStorage.setItem('punm', username)
+    localStorage.setItem('pswd', password)
   }
-
-  // useEffect(() => {
-  //   const loggedInUser = localStorage.getItem('user');
-  //   if (loggedInUser) {
-  //     setUser(loggedInUser)
-  //   }
-  // },[])
 
   useEffect(() => {
     const bhschng = () => {
@@ -141,11 +155,11 @@ function App() {
                   <Route path="/input-data-barang" element={ <InputDataBarang bahasaApp={bahasaApp} tbTheme={tbTheme} />  } />
                   <Route path="/input-penjualan" element={ <InputPenjualan bahasaApp={bahasaApp} tbTheme={tbTheme} /> } />
                   <Route path="/input-pembelian" element={ <InputPembelian bahasaApp={bahasaApp} tbTheme={tbTheme} /> } />
-                  <Route path="/profile" element={ <Profile axiosJWT={axiosJWT} user={user} setUser={setUser} fetchLogin={fetchLogin} temp={temp} bahasaApp={bahasaApp} /> } />
+                  <Route path="/profile" element={ <Profile axiosJWT={axiosJWT} user={user} setUser={setUser} fetchLoginPersist={fetchLoginPersist} bahasaApp={bahasaApp} /> } />
                   <Route path="/add-new-user" element={ <NewUser axiosJWT={axiosJWT} bahasaApp={bahasaApp} /> } />
                   <Route path="/about" element={ <SocialMedia bahasaApp={bahasaApp} wideContent={wideContent} /> } />
-                  <Route path="/adm" element={ <Adm bahasaApp={bahasaApp} wideContent={wideContent} /> } />1
-                  <Route path="/setting" element={ <SettingApp isBhs={isBhs} setIsBhs={setIsBhs} bahasaApp={bahasaApp}
+                  <Route path="/adm" element={ <Adm bahasaApp={bahasaApp} wideContent={wideContent} axiosJWT={axiosJWT} user={user} /> } />1
+                  <Route path="/setting" element={ <SettingApp isBhs={isBhs} setIsBhs={setIsBhs} bahasaApp={bahasaApp} logout={() => setLogin(false)}
                   sbTheme={sbTheme} handleSbTheme={(e) => setSbTheme(e.target.value)} tbTheme={tbTheme} handleTbTheme={(e) => setTbTheme(e.target.value)}  /> } />
                 </Routes>
               </div>

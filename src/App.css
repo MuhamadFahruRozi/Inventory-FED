@@ -299,7 +299,20 @@
 
 .setting-row{
   text-decoration: none;
-  background-color:red;
+}
+
+.set-link{
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.set-link:hover{
+  margin-left: 0;
+  color: rgb(61, 61, 61);
+  background-color: white;
+  border: 1px solid;
+  border-radius: 3px;
 }
 
 .setting-menu{
@@ -308,8 +321,6 @@
   height: 100px;
   width: 100px;
   z-index: 30;
-  background-color: aqua;
-  
 }
 
 .st-fold{

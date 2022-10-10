@@ -157,15 +157,13 @@ const Input_Pembelian = ({bahasaApp, tbTheme}) => {
         })
         
         // console.log(index ,idBarang[index])
-        console.log(index ,idBarang[index], namaBarang[index], hargaBeli[index], hargaJual[index])
+        // console.log(index ,idBarang[index], namaBarang[index], hargaBeli[index], hargaJual[index])
       } else {
         console.log(`All data for row ${index+1} is not filled, item data ${index+1} is not recorded!`)
       }      
     }
     
   }
-
-  console.log(idBarang, namaBarang, hargaBeli, hargaJual)
   
   return (
     <div>

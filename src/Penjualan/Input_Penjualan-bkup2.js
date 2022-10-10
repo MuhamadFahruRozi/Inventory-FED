@@ -181,7 +181,7 @@ const Input_Penjualan = () => {
       // })
     }
 
-    console.log({totalSales: totalAll})
+    // console.log({totalSales: totalAll})
     // const totalSemua =  {totalAll: totalAll};
     // console.log(totalSemua)
 

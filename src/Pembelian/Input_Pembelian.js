@@ -291,7 +291,7 @@ const Input_Pembelian = ({bahasaApp, tbTheme}) => {
     allID[indexOfRow] = text.id_barang ;
     setIdBarang(allID)
 
-    console.log(text, indexOfRow)
+    // console.log(text, indexOfRow)
     setAuto('')
 
     const match = dataBarang.filter((barang) => {
@@ -332,7 +332,7 @@ const Input_Pembelian = ({bahasaApp, tbTheme}) => {
     allNama[indexOfRow] = text.nama_barang ;
     setNamaBarang(allNama)
     
-    console.log(text, indexOfRow)
+    // console.log(text, indexOfRow)
     setAuto('')
 
     const match = dataBarang.filter((barang) => {
@@ -361,7 +361,7 @@ const Input_Pembelian = ({bahasaApp, tbTheme}) => {
     setHargaJual(allHargaJual)
   }
 
-  console.log(noTransaksi ,idBarang, namaBarang, jumlah, hargaBeli, hargaJual, total ,totalAll)
+  // console.log(noTransaksi ,idBarang, namaBarang, jumlah, hargaBeli, hargaJual, total ,totalAll)
   
   return (
     <div>
