@@ -34,7 +34,7 @@ const Setting = ({ logout }) => {
             </Link>
         </Row>
         <Row className='setting-row' >
-            <Link to="/login" className='set-link'
+            <Link to="/" className='set-link'
             element={<Login />} onClick={trylogout} >
                 Log Out
             </Link>
