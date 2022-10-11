@@ -84,7 +84,7 @@ const UserCard = ({ us, axiosJWT, user }) => {
               value={newClientUsername} onChange={(e) => setNewClientUsername(e.target.value)} />
             <input type="text" className='user-input-list' placeholder='Email' disabled={!editMode}
               value={newClientEmail} onChange={(e) => setNewClientEmail(e.target.value)} />
-            <input type={editMode ? "password" : "text"} className='user-input-list' placeholder='Password' disabled={!editMode}
+            <input type={editMode ? "text" : "password"} className='user-input-list' placeholder='Password' disabled={!editMode}
               value={newClientPassword} onChange={(e) => setNewClientPassword(e.target.value)} />
             <select name="user-input-list" id="user-input-list" className='user-input-list' 
             value={newClientStatus} disabled={!editMode} onChange={(e) => setNewClientStatus(e.target.value)}>
