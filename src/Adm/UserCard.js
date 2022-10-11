@@ -47,10 +47,10 @@ const UserCard = ({ us, axiosJWT, user }) => {
         console.log(err)
     })
 
-    if(us.slug === user.slug) {
-      localStorage.setItem('punm', newClientUsername)
-      localStorage.setItem('pswd', newClientPassword)
-    }
+    // if(us.slug === user.slug) {
+    //   localStorage.setItem('punm', newClientUsername)
+    //   localStorage.setItem('pswd', newClientPassword)
+    // }
   }
 
   // console.log(user)
