@@ -2,12 +2,10 @@ import { useState } from "react"
 import { Col, Row } from 'react-bootstrap'
 
 const SettingApp = ({ isBhs, setIsBhs,bahasaApp, sbTheme, handleSbTheme, tbTheme, handleTbTheme}) => {
-  const [bhsButton ,setBhsButton] = useState(true)
+  const [bhsButton ,setBhsButton] = useState(isBhs)
     const handleBahasa = () => {
-        console.log(!bhsButton)
-
         setIsBhs(!isBhs)
-        setBhsButton(!bhsButton)
+        setBhsButton(!isBhs)
     }
 
   const [optColor] = useState([
