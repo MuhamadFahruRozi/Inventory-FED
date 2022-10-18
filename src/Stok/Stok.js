@@ -43,8 +43,7 @@ const Stok = ({wideContent, bahasaApp, tbTheme}) => {
         </Row>
         {
           currentStok.map((item, index) => (
-            <>
-            <Row className='data-record stok' key={item.id_barang} >
+            <Row className='data-record stok'>
               <Col> {item.id_barang} </Col>
               { item.Stok_Barang.map((barang, index) => (
                 // console.log(barang.nama_barang)
@@ -72,11 +71,10 @@ const Stok = ({wideContent, bahasaApp, tbTheme}) => {
                 <span className='right-number'>{item.total_potensi_jual}</span>
               </Col>
             </Row>
-            </>
           ))
         }
       </div>
-      <Pagination transaksiPerPage={transaksiPerPage} totalTransaksi={stok.length} 
+      <Pagination transaksiPerPage={transaksiPerPage} totalTransaksi={stok.length}
         paginate={paginate} currentPage={currentPage}
         setCurrentPage={setCurrentPage} wideContent={wideContent} />
     </>

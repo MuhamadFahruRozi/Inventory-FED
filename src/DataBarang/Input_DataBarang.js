@@ -202,7 +202,7 @@ const Input_Pembelian = ({bahasaApp, tbTheme}) => {
             'white-text' : '' }`}>
           <Col>{bahasaApp.ibar}</Col>
           <Col>{bahasaApp.nbar}</Col>
-          <Col className='jml' >{bahasaApp.hb}</Col>
+          <Col className='jml' >{bahasaApp.hbb}</Col>
           <Col className='jml' >{bahasaApp.hj}</Col>
         </Row>
         <Form onSubmit={handleSubmit} >

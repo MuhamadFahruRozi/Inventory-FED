@@ -2,16 +2,15 @@ import { Button, Row, Col, Form } from 'react-bootstrap'
 import { useEffect, useState, useRef } from 'react'
 import { MdFileUpload } from 'react-icons/md'
 import axios from 'axios'
-import KS from '../img/ks.jpg'
+import KS from '../img/user.jpg'
 
-const Profile = ({ user, temp, setUser, fetchLoginPersist }) => {
+const Profile = ({ user, setUser, fetchLoginPersist }) => {
   const [newUsername, setNewUsername] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [newEmail, setNewEmail] = useState('')
   const [newStatus, setNewStatus] = useState('')
   const [gambar, setGambar] = useState('')
   const [preview, setPreview] = useState('')
-  // const [refresh, setRefresh] = useState(0)
 
   const timerender = useRef(null)
   useEffect(() => {

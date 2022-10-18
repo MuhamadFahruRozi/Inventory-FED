@@ -4,7 +4,7 @@ import { MdFileUpload } from 'react-icons/md'
 import axios from 'axios'
 import KS from '../img/ks.jpg'
 
-const NewUser = () => {
+const NewUser = ({ axiosJWT }) => {
   const [newUsername, setNewUsername] = useState('')
   const [newPassword, setNewPassword] = useState('')
   const [newEmail, setNewEmail] = useState('')

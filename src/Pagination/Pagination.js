@@ -7,8 +7,8 @@ const Pagination = ({ transaksiPerPage, totalTransaksi, paginate, currentPage, w
 
     return (
         <div className={ wideContent ? "pagination wide" : "pagination small"}>        
-            {pageNumbers.map(number => (
-                <li className="page-number">
+            {pageNumbers.map((number, i) => (
+                <li className="page-number" key={i} >
                     <ul key={number} onClick={() => paginate(number)}
                         className={currentPage === number ? "page-link active" : "page-link"}>
                         {number}

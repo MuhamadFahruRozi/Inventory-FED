@@ -3,7 +3,7 @@ import { Button, Form } from 'react-bootstrap'
 import KS from '../img/ks.jpg'
 import { useState, useEffect } from 'react'
 
-const UserCard = ({ us, axiosJWT, user }) => {
+const UserCard = ({ us, axiosJWT, user, users, currentUsers }) => {
   const [newClientUsername, setNewClientUsername] = useState('')
   const [newClientEmail, setNewClientEmail] = useState('')
   const [newClientPassword, setNewClientPassword] = useState('')
@@ -46,11 +46,6 @@ const UserCard = ({ us, axiosJWT, user }) => {
     }).catch(err =>{
         console.log(err)
     })
-
-    // if(us.slug === user.slug) {
-    //   localStorage.setItem('punm', newClientUsername)
-    //   localStorage.setItem('pswd', newClientPassword)
-    // }
   }
 
   // console.log(user)
@@ -71,6 +66,7 @@ const UserCard = ({ us, axiosJWT, user }) => {
         console.log(err)
     })
 
+    currentUsers.filter((result) => result.user_id !== id)
   }
     
   return (

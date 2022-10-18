@@ -18,7 +18,7 @@ const UserList = ({ users, wideContent, axiosJWT, user }) => {
     <div className='adm-userlist'>
         {
         currentUsers.map((us) => 
-          <UserCard us={us} axiosJWT={axiosJWT}  user={user} /> 
+          <UserCard us={us} axiosJWT={axiosJWT}  user={user} users={users} currentUsers={currentUsers}  /> 
         )
         }
       <UserPagination userPerPage={userPerPage} totaluser={users.length} 
