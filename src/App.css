@@ -371,21 +371,31 @@
   align-items: center;
 }
 
+.som{
+  margin-top: 200px;
+  font-size: 30px;
+}
+
+.shref{
+  text-decoration: none;
+}
+
 .tool{
   width: 180px;
   position: absolute;
-  left: 105%;
+  left: 75%;
   top: -50%;
   border-radius: 2px;
   border: 1px solid;
   z-index: 4;
   background-color: white;
+  font-size: 20px;
 }
 
 .tool.on{
   width: 80px;
   position: absolute;
-  left: 105%;
+  left: 75%;
   top: -50%;
   border-radius: 2px;
   border: 1px solid;

@@ -20,14 +20,16 @@ const SocialMedia = () => {
   }
 
   return (
-    <>
+    <div className="som">
       <div className='social-tab' onMouseEnter={() => handleSocial(1)} onMouseLeave={() => handleSocial(0)} >
         <div className={ status === 1 ? 'social-label' : 'social-label off'} >
           {status === 1 ? '' : 'FB'}
         </div>
         {
           status === 1 ?
-          <div className='social-link' ><a href="mew">Muhamad Fahru Rozi</a></div>
+          <div className='social-link' ><a href="https://web.facebook.com/people/Muhamad-Fahru-Rozi/100080110477430/" 
+          target="_blank" className="shref" rel="noreferrer" >
+            Muhamad Fahru Rozi</a></div>
           :
           <></>
         }
@@ -56,12 +58,14 @@ const SocialMedia = () => {
         </div>
         {
           status === 3 ?
-          <div className='social-link' ><a href="mew">linkkkkkkkkkkkkk</a></div>
+          <div className='social-link' ><a href="https://www.linkedin.com/in/muhamad-fahru-rozi-603466224/" 
+          target="_blank" className="shref" rel="noreferrer" >
+            Muhamad Fahru Rozi</a></div>
           :
           <></>
         }
       </div>
-    </>
+    </div>
   )
 }
 

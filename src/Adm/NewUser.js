@@ -2,7 +2,7 @@ import { Button, Row, Col, Form } from 'react-bootstrap'
 import { useState } from 'react'
 import { MdFileUpload } from 'react-icons/md'
 import axios from 'axios'
-import KS from '../img/ks.jpg'
+import KS from '../img/user.png'
 
 const NewUser = ({ axiosJWT }) => {
   const [newUsername, setNewUsername] = useState('')
