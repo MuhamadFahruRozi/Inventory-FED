@@ -2,7 +2,7 @@ import { Button, Row, Col, Form } from 'react-bootstrap'
 import { useEffect, useState, useRef } from 'react'
 import { MdFileUpload } from 'react-icons/md'
 import axios from 'axios'
-import KS from '../img/user.jpg'
+import KS from '../img/user.png'
 
 const Profile = ({ user, setUser, fetchLoginPersist }) => {
   const [newUsername, setNewUsername] = useState('')
