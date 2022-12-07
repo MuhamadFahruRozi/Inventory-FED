@@ -56,7 +56,7 @@ function App() {
     loginFormData.append('username', localStorage.getItem('punm'));
     loginFormData.append('password', localStorage.getItem('pswd'));
 
-    const loginUrl ='https://inventory-bd-mfr.herokuapp.com/api/user/login/';
+    const loginUrl ='https://web-production-883e.up.railway.app/api/user/login/';
 
     const res = await axios.post(loginUrl, loginFormData)
     setUser(res.data)
@@ -68,7 +68,7 @@ function App() {
     loginFormData.append('username', username);
     loginFormData.append('password', password);
 
-    const loginUrl ='https://inventory-bd-mfr.herokuapp.com/api/user/login/';
+    const loginUrl ='https://web-production-883e.up.railway.app/api/user/login/';
 
     const res = await axios.post(loginUrl, loginFormData)
     setUser(res.data)
@@ -99,7 +99,7 @@ function App() {
     let refreshTokenFormData = new FormData();
     refreshTokenFormData.append('token', user.refreshToken);
 
-    const refreshUrl = 'https://inventory-bd-mfr.herokuapp.com/api/user/tokenRefresh';
+    const refreshUrl = 'https://web-production-883e.up.railway.app/api/user/tokenRefresh';
 
     const res = axios.post(refreshUrl, refreshTokenFormData)
     // console.log(res.data)

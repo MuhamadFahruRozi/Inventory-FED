@@ -49,7 +49,7 @@ const Profile = ({ user, setUser, fetchLoginPersist }) => {
       pic_url: preview
     })
         
-    const url =`https://inventory-bd-mfr.herokuapp.com/api/user/${user.slug}`;
+    const url =`https://web-production-883e.up.railway.app/api/user/${user.slug}`;
 
     if(gambar === ""){
         let formData = new FormData();

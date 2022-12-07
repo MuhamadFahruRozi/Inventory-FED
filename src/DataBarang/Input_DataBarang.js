@@ -136,7 +136,7 @@ const Input_Pembelian = ({bahasaApp, tbTheme}) => {
         barangFormData.append('harbel', hargaBeli[index])
         barangFormData.append('harjul', hargaJual[index])
 
-        const barangUrl =`https://inventory-bd-mfr.herokuapp.com/api/barang/`;
+        const barangUrl =`https://web-production-883e.up.railway.app/api/barang/`;
 
         axios.post(barangUrl, barangFormData).then(res => {
             alert(`Items data recorded!`)
@@ -148,7 +148,7 @@ const Input_Pembelian = ({bahasaApp, tbTheme}) => {
         let stokFormData = new FormData();
         stokFormData.append('idbar', idBarang[index])
 
-        const stokUrl =`https://inventory-bd-mfr.herokuapp.com/api/inventory/`;
+        const stokUrl =`https://web-production-883e.up.railway.app/api/inventory/`;
 
         axios.post(stokUrl, stokFormData).then(res => {
             // alert(`Stok data for ${namaBarang[index]} recorded!`)

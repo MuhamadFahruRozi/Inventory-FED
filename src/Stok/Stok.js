@@ -10,7 +10,7 @@ const Stok = ({wideContent, bahasaApp, tbTheme}) => {
 
   useEffect(() => {
     const fetchStok = async () => {
-      const {data} = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/inventory/');
+      const {data} = await axios.get('https://web-production-883e.up.railway.app/api/inventory/');
       const dataStok = data;
       setStok(dataStok)
       // console.log(data.id_barang)

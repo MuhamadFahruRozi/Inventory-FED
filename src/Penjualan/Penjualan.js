@@ -10,7 +10,7 @@ const Penjualan = ({wideContent, bahasaApp, tbTheme}) => {
   
   useEffect(() => {
     const dataJual = async () => {
-      const { data } = await axios.get("https://inventory-bd-mfr.herokuapp.com/api/sales/");
+      const { data } = await axios.get("https://web-production-883e.up.railway.app/api/sales/");
       const allData = data;
       setTransaksi(allData)
     }

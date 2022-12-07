@@ -10,7 +10,7 @@ const Pembelian = ({wideContent, bahasaApp, tbTheme}) => {
   
   useEffect(() => {
     const dataBeli = async () => {
-      const { data } = await axios.get("https://inventory-bd-mfr.herokuapp.com/api/restock/");
+      const { data } = await axios.get("https://web-production-883e.up.railway.app/api/restock/");
       const allData = data;
       setTransaksi(allData)
     }

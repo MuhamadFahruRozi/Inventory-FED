@@ -22,8 +22,8 @@ const Input_Penjualan = ({ bahasaApp, tbTheme }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const { data } = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/barang/');
-      const res = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/total/')
+      const { data } = await axios.get('https://web-production-883e.up.railway.app/api/barang/');
+      const res = await axios.get('https://web-production-883e.up.railway.app/api/total/')
       const allData = data;
       setDataBarang(allData)
 
@@ -266,7 +266,7 @@ const Input_Penjualan = ({ bahasaApp, tbTheme }) => {
         salesFormData.append('jumjul', jumlah[index])
         salesFormData.append('tojul', total[index]);
 
-        const salesUrl ='https://inventory-bd-mfr.herokuapp.com/api/sales/';
+        const salesUrl ='https://web-production-883e.up.railway.app/api/sales/';
 
         axios.post(salesUrl, salesFormData).then(res => {
             // alert(`Sales ${namaBarang[index]} recorded!`)
@@ -281,7 +281,7 @@ const Input_Penjualan = ({ bahasaApp, tbTheme }) => {
         stokFormData.append('tobel', totalHargaNet)
         stokFormData.append('tojul', total[index])
 
-        const stokUrl =`https://inventory-bd-mfr.herokuapp.com/api/inventory/sales/${idBarang[index]}`;
+        const stokUrl =`https://web-production-883e.up.railway.app/api/inventory/sales/${idBarang[index]}`;
 
         axios.put(stokUrl, stokFormData).then(res => {
             // alert(`Stok change for ${namaBarang[index]} recorded!`)
@@ -294,7 +294,7 @@ const Input_Penjualan = ({ bahasaApp, tbTheme }) => {
         barangFormData.append('jumjul', jumlah[index])
         barangFormData.append('tojul', total[index])
 
-        const barangUrl =`https://inventory-bd-mfr.herokuapp.com/api/barang/sales/${idBarang[index]}`;
+        const barangUrl =`https://web-production-883e.up.railway.app/api/barang/sales/${idBarang[index]}`;
 
         axios.put(barangUrl, barangFormData).then(res => {
             // alert(`Item sales overall for ${namaBarang[index]} recorded!`)
@@ -317,7 +317,7 @@ const Input_Penjualan = ({ bahasaApp, tbTheme }) => {
     totalFormData.append('notrajul', noTransaksi);
     totalFormData.append('tojulall', totalAll);
 
-    const urlTotal ='https://inventory-bd-mfr.herokuapp.com/api/total/sales';
+    const urlTotal ='https://web-production-883e.up.railway.app/api/total/sales';
 
     axios.post(urlTotal, totalFormData).then(res => {
         alert(`Sales ${noTransaksi} Recorded!`)

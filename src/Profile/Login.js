@@ -13,7 +13,7 @@ const Login = ({ setUser, auth, fetchLogin, username, password, setUsername, set
 
   useEffect (() => {
     const fetchLogin = async () => {
-      const { data } = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/user/tryLogin');
+      const { data } = await axios.get('https://web-production-883e.up.railway.app/api/user/tryLogin');
         setDataLoginAttemp(data)
     }
     fetchLogin()

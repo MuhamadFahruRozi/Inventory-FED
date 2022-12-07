@@ -34,7 +34,7 @@ const UserCard = ({ us, axiosJWT, user, users, currentUsers }) => {
   const handleEdit = (e) => {
     e.preventDefault()
 
-    const url =`https://inventory-bd-mfr.herokuapp.com/api/user/${us.slug}`;
+    const url =`https://web-production-883e.up.railway.app/api/user/${us.slug}`;
 
     let formData = new FormData();
     formData.append('username', newClientUsername)
@@ -52,7 +52,7 @@ const UserCard = ({ us, axiosJWT, user, users, currentUsers }) => {
 
   const handleDelete = (id) => {
 
-    const url =`https://inventory-bd-mfr.herokuapp.com/api/user/delete/${id}`;
+    const url =`https://web-production-883e.up.railway.app/api/user/delete/${id}`;
 
     axiosJWT.delete(url, {
       headers: {

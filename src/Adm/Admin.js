@@ -11,7 +11,7 @@ const Admin = ({ wideContent, axiosJWT, user }) => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const {data} = await axios.get('https://inventory-bd-mfr.herokuapp.com/api/user/')
+      const {data} = await axios.get('https://web-production-883e.up.railway.app/api/user/')
       setUsers(data)
       // console.log(data)
     }

@@ -9,7 +9,7 @@ const DataBarang = ({wideContent, bahasaApp, tbTheme}) => {
   const [transaksiPerPage] = useState(10)
 
   const fetchBarang = async () => {
-    const { data } = await axios.get("https://inventory-bd-mfr.herokuapp.com/api/barang/");
+    const { data } = await axios.get("https://web-production-883e.up.railway.app/api/barang/");
     const allData = data;
     setBarang(allData)
     // console.log(allData)

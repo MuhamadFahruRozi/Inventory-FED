@@ -27,7 +27,7 @@ const NewUser = ({ axiosJWT }) => {
   const handleSubmit = (e) => {
     e.preventDefault()
         
-    const url ='https://inventory-bd-mfr.herokuapp.com/api/user/';
+    const url ='https://web-production-883e.up.railway.app/api/user/';
 
     if(gambar === ""){
         let formData = new FormData();
